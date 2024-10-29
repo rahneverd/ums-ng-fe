@@ -2,10 +2,16 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/components/login/login.component';
 import { RegisterComponent } from './register/components/register/register.component';
-import { FE_URLS } from './shared/enums/Constants';
+import { FE_URLS } from './shared/utils/Constants';
+import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
-  { path: '', component: RegisterComponent },
+  {
+    canActivate: [AuthGuard],
+    data: { roles: ['Dashboard'] },
+    path: '',
+    loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
+  },
   { path: FE_URLS.LOGIN, component: LoginComponent },
   { path: FE_URLS.REGISTER, component: RegisterComponent },
 ];
