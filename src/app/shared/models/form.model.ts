@@ -1,38 +1,39 @@
-export class TableConfig {
-  tableTitle: string;
-  tableData: any[];
+export class FormConfig {
+  formTitle: string;
+  formData: any[];
   endPoint?: string;
-  tableColumns: TableColumns[];
-  tableActions?: ActionConfig[];
+  formColumns: FormColumns[];
+  formActions?: ActionConfig[];
   rowActions?: ActionConfig[];
   pagination?: Pagination;
 
   constructor(params?: any) {
     params = Object.assign({}, params);
 
-    this.tableColumns = [];
-    this.tableActions = [];
+    this.formColumns = [];
+    this.formActions = [];
     this.rowActions = [];
-    this.tableTitle =
-      params.tableTitle === void 0 ? 'Table Title' : params.tableTitle;
+    this.formTitle =
+      params.formTitle === void 0 ? 'Form Title' : params.formTitle;
     this.endPoint = params.endPoint === void 0 ? null : params.endPoint;
 
-    this.tableData = params?.tableData || [];
+    this.formData = params?.formData || [];
     this.pagination = new Pagination(params.pagination);
 
-    const cols = params.tableColumns === void 0 ? [] : [...params.tableColumns];
-    const tableActs =
-      params.tableActions === void 0 ? [] : [...params.tableActions];
+    const cols = params.formColumns === void 0 ? [] : [...params.formColumns];
+    const formActs =
+      params.formActions === void 0 ? [] : [...params.formActions];
+
     const rowActs = params.rowActions === void 0 ? [] : [...params.rowActions];
 
     if (cols.length > 0) {
       cols.forEach((col: any) => {
-        this.tableColumns.push(new TableColumns(col));
+        this.formColumns.push(new FormColumns(col));
       });
     }
-    if (tableActs.length > 0) {
-      tableActs.forEach((e) => {
-        this.tableActions?.push(new ActionConfig(e));
+    if (formActs.length > 0) {
+      formActs.forEach((e) => {
+        this.formActions?.push(new ActionConfig(e));
       });
     }
     if (rowActs.length > 0) {
@@ -43,9 +44,9 @@ export class TableConfig {
   }
 }
 
-export class TableColumns {
+export class FormColumns {
   field: string;
-  tableHeader: string;
+  formHeader: string;
   nestedPath?: string;
   eventAction?: boolean;
   showBadge?: boolean;
@@ -55,7 +56,7 @@ export class TableColumns {
   constructor(params?: any) {
     if (params === void 0) params = {};
     this.field = params.field;
-    this.tableHeader = params.tableHeader || '';
+    this.formHeader = params.formHeader || '';
     this.nestedPath = params.nestedPath ?? null;
     this.showBadge = params.showBadge === void 0 ? false : params.showBadge;
     this.eventAction =
@@ -83,7 +84,7 @@ export class ActionConfig {
 }
 
 export class FieldVisible {
-  table?: boolean;
+  form?: boolean;
   view?: boolean;
   edit?: boolean;
   add?: boolean;
@@ -93,7 +94,7 @@ export class FieldVisible {
   next?: boolean;
   constructor(params?: any) {
     if (params === void 0) params = {};
-    this.table = params?.table === void 0 ? true : params.table;
+    this.form = params?.form === void 0 ? true : params.form;
     this.view = params?.view === void 0 ? true : params.view;
     this.edit = params?.edit === void 0 ? true : params.edit;
     this.add = params?.add === void 0 ? true : params.add;
