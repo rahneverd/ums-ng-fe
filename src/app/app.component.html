@@ -1,1 +1,8 @@
-<router-outlet></router-outlet>
+<!-- <ngx-ui-loader></ngx-ui-loader> -->
+<!-- <app-p-toast></app-p-toast> -->
+<ng-container *ngIf="isLoggedIn$ | async; then loggedIn; else loggedOut">
+</ng-container>
+<ng-template #loggedIn> Logged In <router-outlet></router-outlet> </ng-template>
+<ng-template #loggedOut>
+  Logged Out <router-outlet></router-outlet>
+</ng-template>

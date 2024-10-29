@@ -5,6 +5,7 @@ import { RegisterComponent } from './register/components/register/register.compo
 import { FE_URLS } from './shared/enums/Constants';
 
 const routes: Routes = [
+  { path: '', component: RegisterComponent },
   { path: FE_URLS.LOGIN, component: LoginComponent },
   { path: FE_URLS.REGISTER, component: RegisterComponent },
 ];
