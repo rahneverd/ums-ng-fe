@@ -12,7 +12,11 @@ const routes: Routes = [
     path: '',
     loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
   },
-  { path: FE_URLS.LOGIN, component: LoginComponent },
+  {
+    path: FE_URLS.LOGIN,
+    loadChildren: () =>
+      import('./login/login.module').then((m) => m.LoginModule),
+  },
   { path: FE_URLS.REGISTER, component: RegisterComponent },
 ];
 
