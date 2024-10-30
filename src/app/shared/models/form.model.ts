@@ -16,7 +16,7 @@ export class FormConfig {
     this.formData = params?.formData || [];
     this.pagination = new Pagination(params.pagination);
     const formCtrls =
-      params.formColumns === void 0 ? [] : [...params.formColumns];
+      params.formControls === void 0 ? [] : [...params.formControls];
     const formActs =
       params.formActions === void 0 ? [] : [...params.formActions];
     const rowActs = params.rowActions === void 0 ? [] : [...params.rowActions];

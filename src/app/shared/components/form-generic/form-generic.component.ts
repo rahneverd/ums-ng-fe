@@ -13,6 +13,7 @@ export class FormGenericComponent implements OnInit, OnDestroy {
   constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
+    console.log('this.formConfig: ', this.formConfig);
     this.initForm();
   }
 
