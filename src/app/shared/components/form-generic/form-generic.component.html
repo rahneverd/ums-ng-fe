@@ -1,9 +1,27 @@
-<form [formGroup]="form">
-  <app-input-text></app-input-text>
+{{ form.getRawValue() | json }}
+<div class="card p-fluid" [formGroup]="form">
+  <div
+    class="field"
+    *ngFor="let control of formConfig?.formControls"
+    [ngSwitch]="control?.controlId"
+  >
+    <app-input-text
+      *ngSwitchCase="formConstants.CTRL_TEXT_BOX_ID"
+      [label]="control?.fieldLabel"
+      [control]="form.get(control.controlName)"
+    ></app-input-text>
+    <app-input-password
+      *ngSwitchCase="formConstants.CTRL_PASSWORD_ID"
+      [label]="control?.fieldLabel"
+      [control]="form.get(control.controlName)"
+    >
+    </app-input-password>
+  </div>
+</div>
+<!-- <app-input-text></app-input-text>
   <app-input-text-area></app-input-text-area>
   <app-input-number></app-input-number>
   <app-input-switch></app-input-switch>
   <app-input-autocomplete></app-input-autocomplete>
   <app-input-date></app-input-date>
-  <app-input-date-time></app-input-date-time>
-</form>
+  <app-input-date-time></app-input-date-time> -->

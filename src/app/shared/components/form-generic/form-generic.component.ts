@@ -1,5 +1,6 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FORM_CONSTANTS } from '../../utils/Constants';
 
 @Component({
   selector: 'app-form-generic',
@@ -20,10 +21,15 @@ export class FormGenericComponent implements OnInit, OnDestroy {
   initForm() {
     for (const control of this.formConfig?.formControls) {
       this.form.addControl(
-        control.fieldLabel,
+        control.controlName,
         this.fb.control('', Validators.required)
       );
     }
+  }
+
+  // getters
+  get formConstants() {
+    return FORM_CONSTANTS;
   }
 
   ngOnDestroy() {}

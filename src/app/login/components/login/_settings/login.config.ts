@@ -29,7 +29,7 @@ export const LOGIN_FORM_CONFIG = {
     },
     {
       fieldId: FORM_CONSTANTS.FIELD_TEXT_ID,
-      controlId: FORM_CONSTANTS.CTRL_TEXT_BOX_ID,
+      controlId: FORM_CONSTANTS.CTRL_PASSWORD_ID,
       fieldLabel: fieldLabels.password,
       controlName: controlNames.password,
       // nestedPath?: string;

@@ -2,11 +2,11 @@ import { Component, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'app-input-text',
-  templateUrl: './input-text.component.html',
-  styleUrls: ['./input-text.component.scss'],
+  selector: 'app-input-password',
+  templateUrl: './input-password.component.html',
+  styleUrls: ['./input-password.component.scss'],
 })
-export class InputTextComponent {
+export class InputPasswordComponent {
   @Input() label: string = 'Label';
   @Input() control: any = new FormControl();
 }

@@ -11,6 +11,7 @@ import { InputSwitchComponent } from './components/inputs/input-switch/input-swi
 import { InputAutocompleteComponent } from './components/inputs/input-autocomplete/input-autocomplete.component';
 import { InputDateComponent } from './components/inputs/input-date/input-date.component';
 import { InputDateTimeComponent } from './components/inputs/input-date-time/input-date-time.component';
+import { InputPasswordComponent } from './components/inputs/input-password/input-password.component';
 
 @NgModule({
   imports: [CommonModule, FormsModule, ReactiveFormsModule, PrimeNgModule],
@@ -24,6 +25,7 @@ import { InputDateTimeComponent } from './components/inputs/input-date-time/inpu
     InputAutocompleteComponent,
     InputDateComponent,
     InputDateTimeComponent,
+    InputPasswordComponent,
   ],
   exports: [
     PrimeNgModule,
