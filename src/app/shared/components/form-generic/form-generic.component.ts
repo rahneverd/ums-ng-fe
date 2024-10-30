@@ -7,13 +7,23 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./form-generic.component.scss'],
 })
 export class FormGenericComponent implements OnInit, OnDestroy {
-  @Input() receivedForm: any;
-  @Input() receivedDat: any;
+  @Input() formConfig: any;
   form: FormGroup = this.fb.group({});
 
   constructor(private fb: FormBuilder) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.initForm();
+  }
+
+  initForm() {
+    for (const control of this.formConfig?.formControls) {
+      this.form.addControl(
+        control.fieldLabel,
+        this.fb.control('', Validators.required)
+      );
+    }
+  }
 
   ngOnDestroy() {}
 }

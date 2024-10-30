@@ -1,34 +1,28 @@
 export class FormConfig {
   formTitle: string;
-  formData: any[];
-  endPoint?: string;
-  formColumns: FormColumns[];
+  formData: any;
+  formControls: FormControls[];
   formActions?: ActionConfig[];
   rowActions?: ActionConfig[];
   pagination?: Pagination;
 
   constructor(params?: any) {
     params = Object.assign({}, params);
-
-    this.formColumns = [];
+    this.formControls = [];
     this.formActions = [];
     this.rowActions = [];
     this.formTitle =
       params.formTitle === void 0 ? 'Form Title' : params.formTitle;
-    this.endPoint = params.endPoint === void 0 ? null : params.endPoint;
-
     this.formData = params?.formData || [];
     this.pagination = new Pagination(params.pagination);
-
-    const cols = params.formColumns === void 0 ? [] : [...params.formColumns];
+    const formCtrls =
+      params.formColumns === void 0 ? [] : [...params.formColumns];
     const formActs =
       params.formActions === void 0 ? [] : [...params.formActions];
-
     const rowActs = params.rowActions === void 0 ? [] : [...params.rowActions];
-
-    if (cols.length > 0) {
-      cols.forEach((col: any) => {
-        this.formColumns.push(new FormColumns(col));
+    if (formCtrls.length > 0) {
+      formCtrls.forEach((ctrl: any) => {
+        this.formControls.push(new FormControls(ctrl));
       });
     }
     if (formActs.length > 0) {
@@ -44,25 +38,24 @@ export class FormConfig {
   }
 }
 
-export class FormColumns {
-  field: string;
-  formHeader: string;
+export class FormControls {
+  fieldId: number;
+  controlId: number;
+  fieldLabel: string;
+  controlName: string;
   nestedPath?: string;
-  eventAction?: boolean;
-  showBadge?: boolean;
+  onChange?: boolean;
   class?: string;
-  pipe?: string;
 
   constructor(params?: any) {
     if (params === void 0) params = {};
-    this.field = params.field;
-    this.formHeader = params.formHeader || '';
+    this.fieldId = params.fieldId;
+    this.controlId = params.controlId;
+    this.fieldLabel = params.fieldLabel;
+    this.controlName = params.controlName;
     this.nestedPath = params.nestedPath ?? null;
-    this.showBadge = params.showBadge === void 0 ? false : params.showBadge;
-    this.eventAction =
-      params.eventAction === void 0 ? false : params.eventAction;
+    this.onChange = params.onChange === void 0 ? false : params.onChange;
     this.class = params.class || '';
-    this.pipe = params.pipe || null;
   }
 }
 
@@ -80,48 +73,6 @@ export class ActionConfig {
     this.visibleInActionMenu =
       params.visibleInActionMenu === void 0 ? true : params.visibleInActionMenu;
     this.showToast = params.showToast === void 0 ? false : params.showToast;
-  }
-}
-
-export class FieldVisible {
-  form?: boolean;
-  view?: boolean;
-  edit?: boolean;
-  add?: boolean;
-  delete?: boolean;
-  search?: boolean;
-  submit?: boolean;
-  next?: boolean;
-  constructor(params?: any) {
-    if (params === void 0) params = {};
-    this.form = params?.form === void 0 ? true : params.form;
-    this.view = params?.view === void 0 ? true : params.view;
-    this.edit = params?.edit === void 0 ? true : params.edit;
-    this.add = params?.add === void 0 ? true : params.add;
-    this.delete = params?.delete === void 0 ? true : params.delete;
-    this.search = params?.search === void 0 ? true : params.search;
-    this.submit = params?.submit === void 0 ? true : params.submit;
-    this.next = params?.next === void 0 ? true : params.next;
-  }
-}
-
-export class FormValidators {
-  required?: boolean;
-  minLength?: number;
-  maxLength?: number;
-  invalidEmail?: boolean;
-  email?: boolean;
-  pattern?: string;
-  emailMustCheck?: string;
-  constructor(params?: any) {
-    if (params === void 0) params = {};
-    this.required = params?.required ?? undefined;
-    this.minLength = params?.minLength ?? undefined;
-    this.maxLength = params?.maxLength ?? undefined;
-    this.invalidEmail = params?.invalidEmail ?? undefined;
-    this.email = params?.email ?? undefined;
-    this.pattern = params?.pattern ?? undefined;
-    this.emailMustCheck = params?.emailMustCheck ?? undefined;
   }
 }
 
