@@ -2,11 +2,11 @@ import { Component, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'app-input-text',
-  templateUrl: './input-text.component.html',
-  styleUrls: ['./input-text.component.scss'],
+  selector: 'app-input-date',
+  templateUrl: './input-date.component.html',
+  styleUrls: ['./input-date.component.scss'],
 })
-export class InputTextComponent {
+export class InputDateComponent {
   @Input() label: string = 'Label';
   @Input() control = new FormControl();
 }
