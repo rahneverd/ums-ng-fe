@@ -3,6 +3,7 @@ import { FormConfig } from 'src/app/shared/models/form.model';
 import { LOGIN_FORM_CONFIG } from './_settings/login.config';
 import { ACTIONS, FE_URLS } from 'src/app/shared/utils/Constants';
 import { Router } from '@angular/router';
+import { ApiService } from 'src/app/shared/services/api.service';
 
 @Component({
   selector: 'app-login',
@@ -12,17 +13,23 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   formConfig: FormConfig;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private apiService: ApiService) {
     this.formConfig = new FormConfig(LOGIN_FORM_CONFIG);
   }
 
   ngOnInit() {}
 
   onAction(event: any) {
-    console.log(event);
-    if (event?.actionName === ACTIONS.LOGIN) {
-    } else if (event?.actionName === ACTIONS.REGISTER) {
+    // console.log(event);
+    if (event?.action?.actionName === ACTIONS.LOGIN) {
+      this.login(event);
+    } else if (event?.action?.actionName === ACTIONS.REGISTER) {
       this.router.navigate([FE_URLS.REGISTER]);
     }
+  }
+
+  login(obj: any) {
+    console.log(obj);
+    // this.apiService
   }
 }

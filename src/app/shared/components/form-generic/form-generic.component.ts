@@ -36,7 +36,7 @@ export class FormGenericComponent implements OnInit, OnDestroy {
   }
 
   onClick(action: ActionConfig) {
-    this.onAction.emit(action);
+    this.onAction.emit({ action, data: this.form.getRawValue() });
   }
 
   // getters
