@@ -55,4 +55,12 @@ export enum FORM_CONSTANTS {
   FIELD_TEXT_ID = 9,
   FIELD_RADIO_ID = 10,
   FIELD_LIST_ID = 11,
+
+  SELECTOR_BUTTON = 'button',
+}
+
+export enum ACTIONS {
+  LOGIN = 'login',
+  REGISTER = 'register',
+  ADD = 'add',
 }

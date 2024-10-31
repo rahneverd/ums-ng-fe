@@ -1,16 +1,16 @@
+import { FORM_CONSTANTS } from '../utils/Constants';
+
 export class FormConfig {
   formTitle: string;
   formData: any;
   formControls: FormControls[];
   formActions?: ActionConfig[];
-  rowActions?: ActionConfig[];
   pagination?: Pagination;
 
   constructor(params?: any) {
     params = Object.assign({}, params);
     this.formControls = [];
     this.formActions = [];
-    this.rowActions = [];
     this.formTitle =
       params.formTitle === void 0 ? 'Form Title' : params.formTitle;
     this.formData = params?.formData || [];
@@ -19,7 +19,7 @@ export class FormConfig {
       params.formControls === void 0 ? [] : [...params.formControls];
     const formActs =
       params.formActions === void 0 ? [] : [...params.formActions];
-    const rowActs = params.rowActions === void 0 ? [] : [...params.rowActions];
+
     if (formCtrls.length > 0) {
       formCtrls.forEach((ctrl: any) => {
         this.formControls.push(new FormControls(ctrl));
@@ -28,11 +28,6 @@ export class FormConfig {
     if (formActs.length > 0) {
       formActs.forEach((e) => {
         this.formActions?.push(new ActionConfig(e));
-      });
-    }
-    if (rowActs.length > 0) {
-      rowActs.forEach((e) => {
-        this.rowActions?.push(new ActionConfig(e));
       });
     }
   }
@@ -61,17 +56,20 @@ export class FormControls {
 
 export class ActionConfig {
   actionName: string;
-  actionTitle?: string;
+  actionTitle: string;
+  buttonSelector: string;
   actionUrl?: string;
-  visibleInActionMenu?: boolean;
   showToast?: boolean;
   constructor(params?: any) {
     if (params === void 0) params = {};
     this.actionName = params.actionName;
-    this.actionTitle = params.actionTitle || '';
+    this.actionTitle = params?.actionTitle
+      ? params.actionTitle
+      : 'Action Title';
+    this.buttonSelector = params?.buttonSelector
+      ? params?.buttonSelector
+      : FORM_CONSTANTS.SELECTOR_BUTTON;
     this.actionUrl = params.actionUrl ?? null;
-    this.visibleInActionMenu =
-      params.visibleInActionMenu === void 0 ? true : params.visibleInActionMenu;
     this.showToast = params.showToast === void 0 ? false : params.showToast;
   }
 }

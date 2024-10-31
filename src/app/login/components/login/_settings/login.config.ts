@@ -37,7 +37,15 @@ export const LOGIN_FORM_CONFIG = {
       // class?: string;
     },
   ],
-
+  formActions: [
+    {
+      actionName: 'actionName',
+      actionTitle: 'Action Title',
+      buttonSelector: FORM_CONSTANTS.SELECTOR_BUTTON,
+      // actionUrl?: string;
+      // showToast?: boolean;
+    },
+  ],
   formData: {},
 
   pagination: {},

@@ -12,6 +12,7 @@ import { InputAutocompleteComponent } from './components/inputs/input-autocomple
 import { InputDateComponent } from './components/inputs/input-date/input-date.component';
 import { InputDateTimeComponent } from './components/inputs/input-date-time/input-date-time.component';
 import { InputPasswordComponent } from './components/inputs/input-password/input-password.component';
+import { ButtonComponent } from './components/buttons/button/button.component';
 
 @NgModule({
   imports: [CommonModule, FormsModule, ReactiveFormsModule, PrimeNgModule],
@@ -26,6 +27,7 @@ import { InputPasswordComponent } from './components/inputs/input-password/input
     InputDateComponent,
     InputDateTimeComponent,
     InputPasswordComponent,
+    ButtonComponent,
   ],
   exports: [
     PrimeNgModule,

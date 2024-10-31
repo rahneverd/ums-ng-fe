@@ -1,6 +1,7 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FORM_CONSTANTS } from '../../utils/Constants';
+import { ActionConfig } from '../../models/form.model';
 
 @Component({
   selector: 'app-form-generic',
@@ -25,6 +26,10 @@ export class FormGenericComponent implements OnInit, OnDestroy {
         this.fb.control('', Validators.required)
       );
     }
+  }
+
+  onClick(action: ActionConfig) {
+    console.log('onClick', action);
   }
 
   // getters

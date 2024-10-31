@@ -17,6 +17,17 @@
     >
     </app-input-password>
   </div>
+  <!-- buttons section -->
+  <div>
+    <ng-container *ngFor="let action of formConfig?.formActions">
+      <ng-container [ngSwitch]="action?.buttonSelector">
+        <app-button
+          *ngSwitchCase="formConstants?.SELECTOR_BUTTON"
+          (onClick)="onClick(action)"
+        ></app-button>
+      </ng-container>
+    </ng-container>
+  </div>
 </div>
 <!-- <app-input-text></app-input-text>
   <app-input-text-area></app-input-text-area>
