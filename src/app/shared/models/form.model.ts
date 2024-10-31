@@ -75,10 +75,10 @@ export class ActionConfig {
 }
 
 export class Pagination {
-  pageNo: number;
-  itemsPerPage: number;
-  totalCount: number;
-  pagingOption: number[];
+  pageNo?: number;
+  itemsPerPage?: number;
+  totalCount?: number;
+  pagingOption?: number[];
 
   constructor(params?: any) {
     if (params === void 0) params = {};
