@@ -1,2 +1,5 @@
 <p>login works!</p>
-<app-form-generic [formConfig]="formConfig"></app-form-generic>
+<app-form-generic
+  [formConfig]="formConfig"
+  (onAction)="onAction($event)"
+></app-form-generic>

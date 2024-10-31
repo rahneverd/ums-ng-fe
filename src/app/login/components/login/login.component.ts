@@ -15,4 +15,8 @@ export class LoginComponent {
   }
 
   ngOnInit() {}
+
+  onAction(event: any) {
+    console.log(event);
+  }
 }

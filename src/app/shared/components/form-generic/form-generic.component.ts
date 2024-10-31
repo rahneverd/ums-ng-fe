@@ -1,4 +1,11 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnDestroy,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FORM_CONSTANTS } from '../../utils/Constants';
 import { ActionConfig } from '../../models/form.model';
@@ -10,12 +17,12 @@ import { ActionConfig } from '../../models/form.model';
 })
 export class FormGenericComponent implements OnInit, OnDestroy {
   @Input() formConfig: any;
+  @Output() onAction: EventEmitter<any> = new EventEmitter();
   form: FormGroup = this.fb.group({});
 
   constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
-    console.log('this.formConfig: ', this.formConfig);
     this.initForm();
   }
 
@@ -29,7 +36,7 @@ export class FormGenericComponent implements OnInit, OnDestroy {
   }
 
   onClick(action: ActionConfig) {
-    console.log('onClick', action);
+    this.onAction.emit(action);
   }
 
   // getters

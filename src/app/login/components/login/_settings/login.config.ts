@@ -1,7 +1,7 @@
 // import { API_ENDPOINTS } from 'src/app/vhs/core/api-endpoints/apiEndpoints';
 // import { Actions } from 'src/app/vhs/shared/enums/common';
 
-import { FORM_CONSTANTS } from 'src/app/shared/utils/Constants';
+import { ACTIONS, FORM_CONSTANTS } from 'src/app/shared/utils/Constants';
 
 const moduleName = 'Login';
 
@@ -39,8 +39,8 @@ export const LOGIN_FORM_CONFIG = {
   ],
   formActions: [
     {
-      actionName: 'actionName',
-      actionTitle: 'Action Title',
+      actionName: ACTIONS.LOGIN,
+      actionTitle: ACTIONS.LOGIN_TITLE,
       buttonSelector: FORM_CONSTANTS.SELECTOR_BUTTON,
       // actionUrl?: string;
       // showToast?: boolean;

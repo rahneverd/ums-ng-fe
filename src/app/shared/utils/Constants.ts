@@ -61,6 +61,9 @@ export enum FORM_CONSTANTS {
 
 export enum ACTIONS {
   LOGIN = 'login',
+  LOGIN_TITLE = 'Login',
   REGISTER = 'register',
+  REGISTER_TITLE = 'Register',
   ADD = 'add',
+  ADD_TITLS = 'Add',
 }
