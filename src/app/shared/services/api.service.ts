@@ -4,13 +4,16 @@ import { ApiActions, ApiPayload, ApiResponse } from '../models/api.model';
 import { catchError, Observable, ObservableInput, tap, throwError } from 'rxjs';
 import { API_BASE_URL } from '../utils/ApiEndpoints';
 import { Pagination } from '../models/form.model';
+import { AlertService } from './alert.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ApiService implements ApiActions {
-  // private alertService: AlertService
-  constructor(private myHttpClient: HttpClient) {}
+  constructor(
+    private myHttpClient: HttpClient,
+    private alertService: AlertService
+  ) {}
 
   errorHandler = (error: HttpErrorResponse): ObservableInput<any> => {
     let errorMessage = '';
@@ -18,9 +21,9 @@ export class ApiService implements ApiActions {
       errorMessage = 'Connection Error';
       return throwError(errorMessage);
     } else {
-      // this.alertService.showCustomErrorAlert(
-      //   error?.error?.message || 'An unexpected error occurred!'
-      // );
+      this.alertService.showErrorAlert(
+        error?.error?.message || 'An unexpected error occurred!'
+      );
       return throwError('Error : Server Error');
     }
   };
@@ -29,7 +32,7 @@ export class ApiService implements ApiActions {
     return this.myHttpClient.post<any>(url, data).pipe(
       tap((res: ApiResponse) => {
         if (showToast) {
-          // this.alertService.checkToast(res, showToast);
+          this.alertService.checkToast(res, showToast);
           // console.log('oas url here: ', url);
         }
       }),

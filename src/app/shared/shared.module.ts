@@ -13,6 +13,7 @@ import { InputDateComponent } from './components/inputs/input-date/input-date.co
 import { InputDateTimeComponent } from './components/inputs/input-date-time/input-date-time.component';
 import { InputPasswordComponent } from './components/inputs/input-password/input-password.component';
 import { ButtonComponent } from './components/buttons/button/button.component';
+import { ToastComponent } from './components/toast/toast.component';
 
 @NgModule({
   imports: [CommonModule, FormsModule, ReactiveFormsModule, PrimeNgModule],
@@ -28,6 +29,7 @@ import { ButtonComponent } from './components/buttons/button/button.component';
     InputDateTimeComponent,
     InputPasswordComponent,
     ButtonComponent,
+    ToastComponent,
   ],
   exports: [
     PrimeNgModule,
@@ -35,6 +37,7 @@ import { ButtonComponent } from './components/buttons/button/button.component';
     ReactiveFormsModule,
     TableGenericComponent,
     FormGenericComponent,
+    ToastComponent,
   ],
 })
 export class SharedModule {}

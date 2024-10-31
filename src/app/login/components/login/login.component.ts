@@ -32,7 +32,7 @@ export class LoginComponent {
   login(obj: any) {
     console.log(obj);
     this.apiService
-      .call(obj?.data, {}, API_ENDPOINTS.LOGIN, false)
+      .call(obj?.data, {}, API_ENDPOINTS.LOGIN, true)
       .subscribe((data) => {
         console.log(data);
       });
