@@ -22,7 +22,8 @@
       <ng-container [ngSwitch]="action?.buttonSelector">
         <app-button
           *ngSwitchCase="formConstants?.SELECTOR_BUTTON"
-          (onClick)="onClick(action)"
+          [buttonConfig]="action"
+          (onClick)="onClick($event)"
         ></app-button>
       </ng-container>
     </ng-container>
