@@ -45,6 +45,13 @@ export const LOGIN_FORM_CONFIG = {
       // actionUrl?: string;
       // showToast?: boolean;
     },
+    {
+      actionName: ACTIONS.REGISTER,
+      actionTitle: ACTIONS.REGISTER_TITLE,
+      buttonSelector: FORM_CONSTANTS.SELECTOR_BUTTON,
+      // actionUrl?: string;
+      // showToast?: boolean;
+    },
   ],
   formData: {},
 
