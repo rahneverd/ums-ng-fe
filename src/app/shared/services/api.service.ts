@@ -39,9 +39,9 @@ export class ApiService implements ApiActions {
 
   public call(
     obj: Object,
-    pagination: Pagination = {},
-    actionUrl: string = '',
-    showToast: boolean = true
+    pagination: Pagination,
+    actionUrl: string,
+    showToast: boolean
   ) {
     return this.post(
       `${API_BASE_URL}${actionUrl}`,

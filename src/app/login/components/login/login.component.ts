@@ -4,6 +4,7 @@ import { LOGIN_FORM_CONFIG } from './_settings/login.config';
 import { ACTIONS, FE_URLS } from 'src/app/shared/utils/Constants';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/shared/services/api.service';
+import { API_ENDPOINTS } from 'src/app/shared/utils/ApiEndpoints';
 
 @Component({
   selector: 'app-login',
@@ -30,6 +31,10 @@ export class LoginComponent {
 
   login(obj: any) {
     console.log(obj);
-    // this.apiService
+    this.apiService
+      .call(obj?.data, {}, API_ENDPOINTS.LOGIN, false)
+      .subscribe((data) => {
+        console.log(data);
+      });
   }
 }

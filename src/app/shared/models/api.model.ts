@@ -20,7 +20,7 @@ export class ApiPayload {
   public static payload(obj: any, pagination?: Pagination) {
     let payload = {
       // 'data': [obj, (pagination?.pageNo !== 0)? pagination :  {}]
-      data: [obj, pagination],
+      data: [obj],
       pagination: pagination,
     };
 
