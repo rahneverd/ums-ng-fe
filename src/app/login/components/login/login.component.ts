@@ -11,6 +11,7 @@ import { ApiService } from 'src/app/shared/services/api.service';
 import { API_ENDPOINTS } from 'src/app/shared/utils/ApiEndpoints';
 import { LoginService } from 'src/app/shared/services/login.service';
 import { ApiResponse } from 'src/app/shared/models/api.model';
+import { AlertService } from 'src/app/shared/services/alert.service';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +24,8 @@ export class LoginComponent {
   constructor(
     private router: Router,
     private apiService: ApiService,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private alertService: AlertService
   ) {
     this.formConfig = new FormConfig(LOGIN_FORM_CONFIG);
   }
@@ -42,10 +44,12 @@ export class LoginComponent {
   login(obj: any) {
     console.log(obj);
     this.apiService
-      .call(obj?.data, {}, API_ENDPOINTS.LOGIN, true)
+      .call(obj?.data, {}, API_ENDPOINTS.LOGIN, false)
       .subscribe((resp) => {
         if (resp.statusCode === API_STATUS_CODE.OK) {
           this.loginService.login(ApiResponse.getData(resp));
+        } else {
+          this.alertService.showErrorAlert(resp?.message);
         }
       });
   }
