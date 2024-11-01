@@ -1,10 +1,16 @@
 import { Component } from '@angular/core';
 import { FormConfig } from 'src/app/shared/models/form.model';
 import { LOGIN_FORM_CONFIG } from './_settings/login.config';
-import { ACTIONS, FE_URLS } from 'src/app/shared/utils/Constants';
+import {
+  ACTIONS,
+  API_STATUS_CODE,
+  FE_URLS,
+} from 'src/app/shared/utils/Constants';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/shared/services/api.service';
 import { API_ENDPOINTS } from 'src/app/shared/utils/ApiEndpoints';
+import { LoginService } from 'src/app/shared/services/login.service';
+import { ApiResponse } from 'src/app/shared/models/api.model';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +20,11 @@ import { API_ENDPOINTS } from 'src/app/shared/utils/ApiEndpoints';
 export class LoginComponent {
   formConfig: FormConfig;
 
-  constructor(private router: Router, private apiService: ApiService) {
+  constructor(
+    private router: Router,
+    private apiService: ApiService,
+    private loginService: LoginService
+  ) {
     this.formConfig = new FormConfig(LOGIN_FORM_CONFIG);
   }
 
@@ -33,8 +43,10 @@ export class LoginComponent {
     console.log(obj);
     this.apiService
       .call(obj?.data, {}, API_ENDPOINTS.LOGIN, true)
-      .subscribe((data) => {
-        console.log(data);
+      .subscribe((resp) => {
+        if (resp.statusCode === API_STATUS_CODE.OK) {
+          this.loginService.login(ApiResponse.getData(resp));
+        }
       });
   }
 }
