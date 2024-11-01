@@ -46,11 +46,11 @@ export class FormControls {
   nestedPath?: string;
   onChange?: boolean;
   showIcon?: boolean;
-  outerClass: string;
-  labelClass: string;
-  spanClass: string;
-  iconClass: string;
-  fieldClass: string;
+  outerClass?: string;
+  labelClass?: string;
+  spanClass?: string;
+  iconClass?: string;
+  fieldClass?: string;
   id?: string;
 
   constructor(params?: any) {
