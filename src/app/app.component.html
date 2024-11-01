@@ -1,10 +1,10 @@
 <!-- <ngx-ui-loader></ngx-ui-loader> -->
-<!-- <app-p-toast></app-p-toast> -->
 <app-toast></app-toast>
 <ng-container *ngIf="isLoggedIn$ | async; then loggedIn; else loggedOut">
 </ng-container>
 <ng-template #loggedIn> Logged In <router-outlet></router-outlet> </ng-template>
 <ng-template #loggedOut>
-  {{ isLoggedIn$ | async }}
-  Logged Out <router-outlet></router-outlet>
+  <div class="vh-100 w-100 d-flex align-items-center justify-content-center">
+    <router-outlet></router-outlet>
+  </div>
 </ng-template>

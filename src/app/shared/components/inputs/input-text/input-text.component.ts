@@ -7,6 +7,6 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./input-text.component.scss'],
 })
 export class InputTextComponent {
-  @Input() label: string = 'Label';
+  @Input() controlConfig: any;
   @Input() control: any = new FormControl();
 }

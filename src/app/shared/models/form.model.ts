@@ -3,6 +3,7 @@ import { FORM_CONSTANTS } from '../utils/Constants';
 export class FormConfig {
   formTitle: string;
   formData: any;
+  formClass: string;
   formControls: FormControls[];
   formActions?: ActionConfig[];
   pagination?: Pagination;
@@ -13,6 +14,7 @@ export class FormConfig {
     this.formActions = [];
     this.formTitle =
       params.formTitle === void 0 ? 'Form Title' : params.formTitle;
+    this.formClass = params.formClass === void 0 ? '' : params.formClass;
     this.formData = params?.formData || [];
     this.pagination = new Pagination(params.pagination);
     const formCtrls =
@@ -40,7 +42,9 @@ export class FormControls {
   controlName: string;
   nestedPath?: string;
   onChange?: boolean;
-  class?: string;
+  fieldClass: string;
+  componentClass: string;
+  id?: string;
 
   constructor(params?: any) {
     if (params === void 0) params = {};
@@ -50,7 +54,9 @@ export class FormControls {
     this.controlName = params.controlName;
     this.nestedPath = params.nestedPath ?? null;
     this.onChange = params.onChange === void 0 ? false : params.onChange;
-    this.class = params.class || '';
+    this.fieldClass = params.fieldClass || 'field';
+    this.componentClass = params.componentClass || '';
+    this.id = params.id ?? null;
   }
 }
 

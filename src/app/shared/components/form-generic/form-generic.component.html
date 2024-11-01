@@ -1,21 +1,19 @@
-<div class="card p-fluid" [formGroup]="form">
-  <div
-    class="field"
-    *ngFor="let control of formConfig?.formControls"
-    [ngSwitch]="control?.controlId"
-  >
-    <app-input-text
-      *ngSwitchCase="formConstants.CTRL_TEXT_BOX_ID"
-      [label]="control?.fieldLabel"
-      [control]="form.get(control.controlName)"
-    ></app-input-text>
-    <app-input-password
-      *ngSwitchCase="formConstants.CTRL_PASSWORD_ID"
-      [label]="control?.fieldLabel"
-      [control]="form.get(control.controlName)"
-    >
-    </app-input-password>
-  </div>
+<div class="{{ formConfig?.formClass }}" [formGroup]="form">
+  <ng-container *ngFor="let control of formConfig?.formControls">
+    <div class="{{ control?.fieldClass }}" [ngSwitch]="control?.controlId">
+      <app-input-text
+        *ngSwitchCase="formConstants.CTRL_TEXT_BOX_ID"
+        [controlConfig]="control"
+        [control]="form.get(control.controlName)"
+      ></app-input-text>
+      <app-input-password
+        *ngSwitchCase="formConstants.CTRL_PASSWORD_ID"
+        [controlConfig]="control"
+        [control]="form.get(control.controlName)"
+      >
+      </app-input-password>
+    </div>
+  </ng-container>
   <!-- buttons section -->
   <div>
     <ng-container *ngFor="let action of formConfig?.formActions">

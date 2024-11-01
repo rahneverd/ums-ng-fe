@@ -1,2 +1,4 @@
-<label>{{ label }}</label>
-<input type="text" pInputText [formControl]="control" />
+<div class="{{ controlConfig?.componentClass }}">
+  <label>{{ controlConfig?.fieldLabel }}</label>
+  <input type="text" pInputText [formControl]="control" />
+</div>

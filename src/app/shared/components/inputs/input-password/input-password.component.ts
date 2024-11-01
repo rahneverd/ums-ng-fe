@@ -7,6 +7,6 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./input-password.component.scss'],
 })
 export class InputPasswordComponent {
-  @Input() label: string = 'Label';
+  @Input() controlConfig: any;
   @Input() control: any = new FormControl();
 }
