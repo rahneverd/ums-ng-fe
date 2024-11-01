@@ -8,9 +8,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
 import { MenuComponent } from './layout/menu/menu.component';
 import { TopBarComponent } from './layout/top-bar/top-bar.component';
+import { LayoutComponent } from './layout/layout/layout.component';
 
 @NgModule({
-  declarations: [AppComponent, MenuComponent, TopBarComponent],
+  declarations: [AppComponent, MenuComponent, TopBarComponent, LayoutComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
