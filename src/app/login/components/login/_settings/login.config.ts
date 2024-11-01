@@ -18,6 +18,7 @@ export enum controlNames {
 export const LOGIN_FORM_CONFIG = {
   formTitle: moduleName,
   formClass: 'card p-fluid',
+  controlsClass: 'row',
   formControls: [
     {
       fieldId: FORM_CONSTANTS.FIELD_TEXT_ID,
@@ -26,8 +27,12 @@ export const LOGIN_FORM_CONFIG = {
       controlName: controlNames.email,
       // nestedPath?: string;
       // onChange?: boolean;
-      fieldClass: 'field',
-      componentClass: 'd-flex',
+      showIcon: true,
+      outerClass: 'col-md-12 form-field-container',
+      labelClass: 'form-field-label',
+      spanClass: 'p-input-icon-right',
+      iconClass: 'pi pi-user',
+      // fieldClass: 'input-text',
       // id: string
     },
     {
@@ -37,8 +42,12 @@ export const LOGIN_FORM_CONFIG = {
       controlName: controlNames.password,
       // nestedPath?: string;
       // onChange?: boolean;
-      fieldClass: 'field',
-      componentClass: '',
+      showIcon: true,
+      outerClass: 'col-md-12 form-field-container',
+      labelClass: 'form-field-label',
+      spanClass: 'p-input-icon-right',
+      // iconClass: 'pi pi-key',
+      // fieldClass: 'input-text ',
       // id: string
     },
   ],

@@ -4,6 +4,7 @@ export class FormConfig {
   formTitle: string;
   formData: any;
   formClass: string;
+  controlsClass: string;
   formControls: FormControls[];
   formActions?: ActionConfig[];
   pagination?: Pagination;
@@ -15,6 +16,8 @@ export class FormConfig {
     this.formTitle =
       params.formTitle === void 0 ? 'Form Title' : params.formTitle;
     this.formClass = params.formClass === void 0 ? '' : params.formClass;
+    this.controlsClass =
+      params.controlsClass === void 0 ? 'row' : params.controlsClass;
     this.formData = params?.formData || [];
     this.pagination = new Pagination(params.pagination);
     const formCtrls =
@@ -42,8 +45,12 @@ export class FormControls {
   controlName: string;
   nestedPath?: string;
   onChange?: boolean;
+  showIcon?: boolean;
+  outerClass: string;
+  labelClass: string;
+  spanClass: string;
+  iconClass: string;
   fieldClass: string;
-  componentClass: string;
   id?: string;
 
   constructor(params?: any) {
@@ -54,8 +61,12 @@ export class FormControls {
     this.controlName = params.controlName;
     this.nestedPath = params.nestedPath ?? null;
     this.onChange = params.onChange === void 0 ? false : params.onChange;
-    this.fieldClass = params.fieldClass || 'field';
-    this.componentClass = params.componentClass || '';
+    this.showIcon = params.showIcon || 'field';
+    this.outerClass = params.outerClass || 'field';
+    this.labelClass = params.labelClass || '';
+    this.spanClass = params.spanClass || '';
+    this.iconClass = params.iconClass || '';
+    this.fieldClass = params.fieldClass || '';
     this.id = params.id ?? null;
   }
 }
