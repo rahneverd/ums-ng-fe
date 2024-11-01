@@ -1,4 +1,5 @@
 export enum FE_URLS {
+  HOME = '/',
   LOGIN = 'login',
   REGISTER = 'register',
 }
@@ -7,6 +8,23 @@ export class UTS {
   public static verificationKey = 'verification';
   public static userKey = 'user';
   public static tokenKey = 'token';
+  public static caseKey = 'case';
+
+  public static getVerificationFromLocalStorage() {
+    let verificationJSON = localStorage.getItem(UTS.verificationKey);
+    let verificationObject = verificationJSON
+      ? JSON.parse(verificationJSON)
+      : {};
+    if (
+      verificationObject?.[UTS.tokenKey] &&
+      verificationObject?.[UTS.userKey] &&
+      verificationObject?.[UTS.caseKey]
+    ) {
+      return verificationObject;
+    } else {
+      return null;
+    }
+  }
 
   public static getUserFromLocalStorage() {
     let verificationJSON = localStorage.getItem(UTS.verificationKey);
@@ -80,4 +98,9 @@ export enum API_STATUS_CODE {
   REQUEST_TIMEOUT = 408,
   INTERNAL_SERVER_ERROR = 500,
   SERVICE_UNAVAILABLE = 503,
+}
+
+export enum LOGIN_CONSTANTS {
+  CASE_VERIFIED = 'VERIFIED',
+  CASE_OTP = 'OTP',
 }
