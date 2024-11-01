@@ -2,7 +2,21 @@
 <app-toast></app-toast>
 <ng-container *ngIf="isLoggedIn$ | async; then loggedIn; else loggedOut">
 </ng-container>
-<ng-template #loggedIn> Logged In <router-outlet></router-outlet> </ng-template>
+<ng-template #loggedIn>
+  <div class="h-100 d-flex">
+    <!-- <div style="width: 250px; display: inline-block"><p>menu works!</p></div>
+    <div style="display: inline-block; margin-left: 20px">
+      <router-outlet></router-outlet>
+    </div> -->
+    <div class="w-25">
+      <app-menu></app-menu>
+    </div>
+    <div class="w-75 vh-100 ps-3">
+      <router-outlet></router-outlet>
+    </div>
+    <!-- <app-top-bar></app-top-bar> -->
+  </div>
+</ng-template>
 <ng-template #loggedOut>
   <div class="vh-100 w-100 d-flex align-items-center justify-content-center">
     <router-outlet></router-outlet>
