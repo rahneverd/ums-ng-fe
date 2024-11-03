@@ -4,11 +4,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
 import { MenuComponent } from './layout/menu/menu.component';
 import { TopBarComponent } from './layout/top-bar/top-bar.component';
 import { LayoutComponent } from './layout/layout/layout.component';
+import { AuthInterceptorService } from './auth/auth-interceptor.service';
 
 @NgModule({
   declarations: [AppComponent, MenuComponent, TopBarComponent, LayoutComponent],
@@ -19,7 +20,13 @@ import { LayoutComponent } from './layout/layout/layout.component';
     HttpClientModule,
     SharedModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
