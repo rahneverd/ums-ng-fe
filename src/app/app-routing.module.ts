@@ -6,16 +6,21 @@ import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
   {
-    canActivate: [AuthGuard],
-    path: '',
-    loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
-  },
-  {
     path: FE_URLS.LOGIN,
     loadChildren: () =>
       import('./login/login.module').then((m) => m.LoginModule),
   },
   { path: FE_URLS.REGISTER, component: RegisterComponent },
+  {
+    canActivate: [AuthGuard],
+    path: '',
+    loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
+  },
+  {
+    canActivate: [AuthGuard],
+    path: 'ums',
+    loadChildren: () => import('./ums/ums.module').then((m) => m.UmsModule),
+  },
 ];
 
 @NgModule({

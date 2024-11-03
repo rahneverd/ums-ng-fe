@@ -2,6 +2,8 @@ export enum FE_URLS {
   HOME = '/',
   LOGIN = 'login',
   REGISTER = 'register',
+
+  USERS = 'ums/users',
 }
 
 export class UTS {

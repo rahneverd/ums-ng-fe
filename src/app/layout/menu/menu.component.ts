@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { MenuItem } from 'primeng/api';
+import { FE_URLS } from 'src/app/shared/utils/Constants';
 
 @Component({
   selector: 'app-menu',
@@ -9,7 +11,7 @@ import { MenuItem } from 'primeng/api';
 export class MenuComponent {
   items: MenuItem[] = [];
 
-  constructor() {}
+  constructor(private router: Router) {}
   ngOnInit() {
     this.getAndSetMenu();
   }
@@ -20,25 +22,26 @@ export class MenuComponent {
         icon: 'pi pi-fw pi-user',
         items: [
           {
-            label: 'New',
-            icon: 'pi pi-fw pi-plus',
-            items: [
-              {
-                label: 'Bookmark',
-                icon: 'pi pi-fw pi-bookmark',
-              },
-              {
-                label: 'Video',
-                icon: 'pi pi-fw pi-video',
-              },
-            ],
+            label: 'Users',
+            icon: 'pi pi-fw pi-user',
+            command: () => this.navigateTo(FE_URLS.USERS),
+            // items: [
+            //   {
+            //     label: 'Bookmark',
+            //     icon: 'pi pi-fw pi-bookmark',
+            //   },
+            //   {
+            //     label: 'Video',
+            //     icon: 'pi pi-fw pi-video',
+            //   },
+            // ],
           },
           {
-            label: 'Delete',
+            label: 'Roles',
             icon: 'pi pi-fw pi-trash',
           },
           {
-            label: 'Export',
+            label: 'Packages',
             icon: 'pi pi-fw pi-external-link',
           },
         ],
@@ -130,5 +133,9 @@ export class MenuComponent {
       //   ],
       // },
     ];
+  }
+
+  navigateTo(route: string) {
+    this.router.navigate([route]);
   }
 }
