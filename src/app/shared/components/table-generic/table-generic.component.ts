@@ -49,4 +49,8 @@ export class TableGenericComponent {
     });
     return finalResult;
   }
+
+  getNestedPathData(data: any, nestedPath: any) {
+    return eval(`data.${nestedPath}`);
+  }
 }

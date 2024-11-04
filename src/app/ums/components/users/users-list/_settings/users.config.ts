@@ -39,7 +39,6 @@ export const USERS_TABLE_CONFIG = {
         fieldNames.middleName,
         fieldNames.lastName,
       ],
-      nestedPath: 'string',
       eventAction: false,
       showBadge: false,
       class: 'string',
@@ -48,7 +47,6 @@ export const USERS_TABLE_CONFIG = {
     {
       field: fieldNames.username,
       colHeader: colHeaders.username,
-      nestedPath: 'string',
       eventAction: false,
       showBadge: false,
       class: 'string',
@@ -57,7 +55,6 @@ export const USERS_TABLE_CONFIG = {
     {
       field: fieldNames.package,
       colHeader: colHeaders.package,
-      nestedPath: 'string',
       eventAction: false,
       showBadge: false,
       class: 'string',
@@ -66,7 +63,7 @@ export const USERS_TABLE_CONFIG = {
     {
       field: fieldNames.role,
       colHeader: colHeaders.role,
-      nestedPath: 'string',
+      nestedPath: 'lovUserTypeId.title',
       eventAction: false,
       showBadge: false,
       class: 'string',
@@ -75,7 +72,7 @@ export const USERS_TABLE_CONFIG = {
     {
       field: fieldNames.status,
       colHeader: colHeaders.status,
-      nestedPath: 'string',
+      nestedPath: 'lovStatusId.title',
       eventAction: false,
       showBadge: false,
       class: 'string',
