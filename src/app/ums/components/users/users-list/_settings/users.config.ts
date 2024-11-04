@@ -2,7 +2,12 @@
 // import { Actions } from 'src/app/vhs/shared/enums/common';
 
 import { Pagination } from 'src/app/shared/models/table.model';
-import { ACTIONS, FORM_CONSTANTS } from 'src/app/shared/utils/Constants';
+import { API_ENDPOINTS } from 'src/app/shared/utils/ApiEndpoints';
+import {
+  ACTIONS,
+  FE_URLS,
+  FORM_CONSTANTS,
+} from 'src/app/shared/utils/Constants';
 
 const moduleName = 'Users';
 
@@ -79,7 +84,15 @@ export const USERS_TABLE_CONFIG = {
       // pipe?: string;
     },
   ],
-  // tableActions?: ActionConfig[],
+  tableActions: [
+    {
+      actionName: ACTIONS.ADD,
+      actionTitle: 'Add User',
+      actionUrl: API_ENDPOINTS.CREATE_USER,
+      // visibleInActionMenu: true,
+      showToast: true,
+    },
+  ],
   // rowActions?: ActionConfig[],
   pagination: {},
 

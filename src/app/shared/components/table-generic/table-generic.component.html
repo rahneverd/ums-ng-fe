@@ -1,9 +1,11 @@
-{{ tableConfig | json }}
-
 <div class="container py-5">
   <div class="d-flex justify-content-between align-items-center mb-4">
     <h1 class="h4">{{ tableConfig.tableTitle }}</h1>
-    <button pButton label="+ Add New User" class="btn btn-primary"></button>
+    <div>
+      <ng-container *ngFor="let action of tableConfig.tableActions">
+        <button pButton label="+ Add New User" class="btn btn-primary"></button>
+      </ng-container>
+    </div>
   </div>
 
   <p-table

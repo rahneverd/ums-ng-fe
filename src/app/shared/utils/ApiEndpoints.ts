@@ -6,4 +6,5 @@ export enum API_ENDPOINTS {
   // users routes
   LOGIN = 'user/login',
   FIND_ALL = 'user/findAll',
+  CREATE_USER = 'user/createUser',
 }
