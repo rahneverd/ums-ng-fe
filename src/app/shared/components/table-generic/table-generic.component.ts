@@ -45,7 +45,9 @@ export class TableGenericComponent {
   getMultiplePathsData(data: any, multiplePaths: any) {
     let finalResult = '';
     multiplePaths.forEach((field: string) => {
-      finalResult = data[field] ? finalResult + data[field] + ' ' : finalResult;
+      finalResult = eval(`data.${field}`)
+        ? finalResult + eval(`data.${field}`) + ' '
+        : finalResult;
     });
     return finalResult;
   }
