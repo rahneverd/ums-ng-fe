@@ -1,3 +1,4 @@
+import { LoginService } from 'src/app/shared/services/login.service';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { ApiActions, ApiPayload, ApiResponse } from '../models/api.model';
@@ -5,6 +6,7 @@ import { catchError, Observable, ObservableInput, tap, throwError } from 'rxjs';
 import { API_BASE_URL } from '../utils/ApiEndpoints';
 import { Pagination } from '../models/form.model';
 import { AlertService } from './alert.service';
+import { LOGIN_CONSTANTS } from '../utils/Constants';
 
 @Injectable({
   providedIn: 'root',
@@ -12,20 +14,29 @@ import { AlertService } from './alert.service';
 export class ApiService implements ApiActions {
   constructor(
     private myHttpClient: HttpClient,
-    private alertService: AlertService
+    private alertService: AlertService,
+    private LoginServic: LoginService
   ) {}
 
-  errorHandler = (error: HttpErrorResponse): ObservableInput<any> => {
+  errorHandler = (error: HttpErrorResponse) => {
+    console.log(
+      'oas error: ',
+      error?.error?.name === LOGIN_CONSTANTS.JWT_ERROR
+    );
     let errorMessage = '';
     if (!navigator.onLine) {
       errorMessage = 'Connection Error';
-      return throwError(errorMessage);
     } else {
       this.alertService.showErrorAlert(
         error?.error?.message || 'An unexpected error occurred!'
       );
-      return throwError('Error : Server Error');
+      errorMessage = 'An unexpected error occurred!';
+      // return throwError('Error : Server Error');
     }
+    if (error?.error?.name === LOGIN_CONSTANTS.JWT_ERROR) {
+      this.LoginServic.logout();
+    }
+    return throwError(errorMessage);
   };
 
   post(url: string, data: any, showToast?: boolean) {

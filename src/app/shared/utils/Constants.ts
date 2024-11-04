@@ -105,4 +105,6 @@ export enum API_STATUS_CODE {
 export enum LOGIN_CONSTANTS {
   CASE_VERIFIED = 'VERIFIED',
   CASE_OTP = 'OTP',
+
+  JWT_ERROR = 'TokenExpiredError',
 }

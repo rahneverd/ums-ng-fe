@@ -1,1 +1,106 @@
-<p>table-generic works!</p>
+{{ tableConfig | json }}
+
+<div class="container py-5">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="h4">Users Management</h1>
+    <button pButton label="+ Add New User" class="btn btn-primary"></button>
+  </div>
+
+  <p-table
+    [value]="tableConfig.tableData"
+    [paginator]="true"
+    [rows]="10"
+    [rowsPerPageOptions]="[5, 10, 20]"
+    [selection]="selectedUsers"
+    (selectionChange)="onSelectionChange($event)"
+    dataKey="email"
+  >
+    <!-- Table Headers -->
+    <ng-template pTemplate="header">
+      <tr>
+        <!-- <th>
+          <p-checkbox
+            [(ngModel)]="allSelected"
+            [binary]="true"
+            (ngModelChange)="selectAll($event)"
+          ></p-checkbox>
+        </th> -->
+        <th *ngFor="let col of tableConfig.tableColumns">
+          {{ col?.colHeader }}
+        </th>
+        <!-- <th>Role</th>
+        <th>Groups</th>
+        <th>Status</th>
+        <th>Actions</th> -->
+      </tr>
+    </ng-template>
+
+    <!-- Table Body -->
+    <ng-template pTemplate="body" let-user>
+      <!-- [pSelectableRow]="user" -->
+      <tr>
+        <td *ngFor="let col of tableConfig.tableColumns">
+          {{ user[col.field] }}
+        </td>
+        <!-- <td>
+          <p-checkbox [(ngModel)]="user.selected" [binary]="true"></p-checkbox>
+        </td> -->
+        <!-- <td>
+          <div class="d-flex align-items-center">
+            <img
+              [src]="user.avatar"
+              alt="Avatar"
+              class="rounded-circle me-2"
+              style="width: 40px; height: 40px"
+            />
+            <div>
+              <div class="fw-bold">{{ user.name }}</div>
+              <div class="text-muted">{{ user.email }}</div>
+            </div>
+          </div>
+        </td> -->
+        <!-- <td>
+          <span class="badge bg-secondary">{{ user.role }}</span>
+        </td> -->
+        <!-- <td>
+          <span
+            *ngFor="let group of user.groups"
+            class="badge bg-light text-dark me-1"
+            >{{ group }}</span
+          >
+        </td> -->
+        <!-- <td>
+          <span
+            [ngClass]="{
+              'badge bg-success': user.status === 'Active',
+              'badge bg-danger': user.status === 'Inactive'
+            }"
+          >
+            {{ user.status }}
+          </span>
+        </td> -->
+        <!-- <td>
+          <button
+            pButton
+            label="Reset Password"
+            class="btn btn-outline-primary btn-sm me-2"
+          ></button>
+          <button
+            pButton
+            icon="pi pi-trash"
+            class="btn btn-outline-danger btn-sm"
+          ></button>
+        </td> -->
+      </tr>
+    </ng-template>
+
+    <!-- Table Footer for Pagination Info -->
+    <!-- <ng-template pTemplate="footer">
+      <tr>
+        <td colspan="6" class="text-end">
+          <small>Showing {{ users.length }} of {{ totalUsers }}</small>
+        </td>
+      </tr>
+    </ng-template> -->
+  </p-table>
+</div>

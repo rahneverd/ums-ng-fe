@@ -81,5 +81,6 @@ export class LoginService {
   logout() {
     localStorage.clear();
     this.sharedService.setIsLoggedIn(false);
+    this.navigateTo(FE_URLS.LOGIN);
   }
 }

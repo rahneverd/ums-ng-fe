@@ -45,7 +45,7 @@ export class TableConfig {
 
 export class TableColumns {
   field: string;
-  tableHeader: string;
+  colHeader: string;
   nestedPath?: string;
   eventAction?: boolean;
   showBadge?: boolean;
@@ -55,7 +55,7 @@ export class TableColumns {
   constructor(params?: any) {
     if (params === void 0) params = {};
     this.field = params.field;
-    this.tableHeader = params.tableHeader || '';
+    this.colHeader = params.colHeader || '';
     this.nestedPath = params.nestedPath ?? null;
     this.showBadge = params.showBadge === void 0 ? false : params.showBadge;
     this.eventAction =
