@@ -1,15 +1,7 @@
-// import { API_ENDPOINTS } from 'src/app/vhs/core/api-endpoints/apiEndpoints';
-// import { Actions } from 'src/app/vhs/shared/enums/common';
-
-import { Pagination } from 'src/app/shared/models/table.model';
 import { API_ENDPOINTS } from 'src/app/shared/utils/ApiEndpoints';
-import {
-  ACTIONS,
-  FE_URLS,
-  FORM_CONSTANTS,
-} from 'src/app/shared/utils/Constants';
+import { ACTIONS } from 'src/app/shared/utils/Constants';
 
-const moduleName = 'Users';
+const moduleName = 'Applications';
 
 export enum colHeaders {
   name = 'Name',
@@ -31,7 +23,7 @@ export enum fieldNames {
   lastName = 'lastName',
 }
 
-export const USERS_TABLE_CONFIG = {
+export const APPLICATIONS_TABLE_CONFIG = {
   tableTitle: moduleName,
   tableData: [],
   // endPoint?: string,

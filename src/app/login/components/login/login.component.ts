@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormConfig } from 'src/app/shared/models/form.model';
 import { LOGIN_FORM_CONFIG } from './_settings/login.config';
 import {
@@ -12,13 +12,15 @@ import { API_ENDPOINTS } from 'src/app/shared/utils/ApiEndpoints';
 import { LoginService } from 'src/app/shared/services/login.service';
 import { ApiResponse } from 'src/app/shared/models/api.model';
 import { AlertService } from 'src/app/shared/services/alert.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit, OnDestroy {
+  subscription: Subscription = new Subscription();
   formConfig: FormConfig;
 
   constructor(
@@ -43,7 +45,7 @@ export class LoginComponent {
 
   login(obj: any) {
     console.log(obj);
-    this.apiService
+    this.subscription = this.apiService
       .call(obj?.data, {}, API_ENDPOINTS.LOGIN, false)
       .subscribe((resp) => {
         if (resp.statusCode === API_STATUS_CODE.OK) {
@@ -52,5 +54,9 @@ export class LoginComponent {
           this.alertService.showErrorAlert(resp?.message);
         }
       });
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }

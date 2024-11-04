@@ -19,7 +19,7 @@ export class MenuComponent {
     this.items = [
       {
         label: 'UMS',
-        icon: 'pi pi-fw pi-user',
+        icon: 'pi pi-fw pi-user-edit',
         items: [
           {
             label: 'Users',
@@ -37,12 +37,17 @@ export class MenuComponent {
             // ],
           },
           {
+            label: 'Applications',
+            icon: 'pi pi-fw pi-qrcode',
+            command: () => this.navigateTo(FE_URLS.APPLICATIONS),
+          },
+          {
             label: 'Roles',
-            icon: 'pi pi-fw pi-trash',
+            icon: 'pi pi-fw pi-sitemap',
           },
           {
             label: 'Packages',
-            icon: 'pi pi-fw pi-external-link',
+            icon: 'pi pi-fw pi-wallet',
           },
         ],
       },
