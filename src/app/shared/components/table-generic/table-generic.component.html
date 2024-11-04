@@ -36,11 +36,15 @@
     </ng-template>
 
     <!-- Table Body -->
-    <ng-template pTemplate="body" let-user>
+    <ng-template pTemplate="body" let-data>
       <!-- [pSelectableRow]="user" -->
       <tr>
         <td *ngFor="let col of tableConfig.tableColumns">
-          {{ user[col.field] }}
+          {{
+            col?.multiplePaths
+              ? getMultiplePathsData(data, col.multiplePaths)
+              : data[col.field]
+          }}
         </td>
         <!-- <td>
           <p-checkbox [(ngModel)]="user.selected" [binary]="true"></p-checkbox>

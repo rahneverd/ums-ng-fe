@@ -20,6 +20,10 @@ export enum fieldNames {
   role = 'lovUserTypeId',
   package = 'packageId',
   status = 'lovStatusId',
+
+  firstName = 'firstName',
+  middleName = 'middleName',
+  lastName = 'lastName',
 }
 
 export const USERS_TABLE_CONFIG = {
@@ -30,6 +34,11 @@ export const USERS_TABLE_CONFIG = {
     {
       field: fieldNames.name,
       colHeader: colHeaders.name,
+      multiplePaths: [
+        fieldNames.firstName,
+        fieldNames.middleName,
+        fieldNames.lastName,
+      ],
       nestedPath: 'string',
       eventAction: false,
       showBadge: false,

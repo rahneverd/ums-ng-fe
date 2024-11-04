@@ -47,6 +47,7 @@ export class TableColumns {
   field: string;
   colHeader: string;
   nestedPath?: string;
+  multiplePaths?: string[];
   eventAction?: boolean;
   showBadge?: boolean;
   class?: string;
@@ -57,6 +58,7 @@ export class TableColumns {
     this.field = params.field;
     this.colHeader = params.colHeader || '';
     this.nestedPath = params.nestedPath ?? null;
+    this.multiplePaths = params?.multiplePaths ?? null;
     this.showBadge = params.showBadge === void 0 ? false : params.showBadge;
     this.eventAction =
       params.eventAction === void 0 ? false : params.eventAction;

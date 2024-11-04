@@ -41,4 +41,12 @@ export class TableGenericComponent {
     this.allSelected = selectAll;
     this.selectedUsers = selectAll ? [...this.users] : [];
   }
+
+  getMultiplePathsData(data: any, multiplePaths: any) {
+    let finalResult = '';
+    multiplePaths.forEach((field: string) => {
+      finalResult = data[field] ? finalResult + data[field] + ' ' : finalResult;
+    });
+    return finalResult;
+  }
 }
