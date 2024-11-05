@@ -78,11 +78,18 @@ export const APPLICATIONS_TABLE_CONFIG = {
     },
   ],
   tableActions: [
+    // {
+    //   actionName: ACTIONS.ADD,
+    //   actionTitle: 'Add Application',
+    //   actionUrl: API_ENDPOINTS.USER_CREATE,
+    //   // visibleInActionMenu: true,
+    //   showToast: true,
+    // },
     {
       actionName: ACTIONS.ADD,
       actionTitle: 'Add Application',
-      actionUrl: API_ENDPOINTS.USER_CREATE,
-      // visibleInActionMenu: true,
+      buttonSelector: FORM_CONSTANTS.SELECTOR_BUTTON,
+      actionUrl: API_ENDPOINTS.APPLICATION_CREATE,
       showToast: true,
     },
   ],

@@ -30,8 +30,22 @@ export class FormGenericComponent implements OnInit, OnDestroy {
     for (const control of this.formConfig?.formControls) {
       this.form.addControl(
         control.controlName,
-        this.fb.control('', Validators.required)
+        this.fb.control('', control?.validations)
       );
+    }
+  }
+
+  checkDisabled(action: ActionConfig) {
+    if (action.validations?.length) {
+      let value = false;
+      for (let validation of action.validations) {
+        if (!this.form.get(validation)?.valid) {
+          value = true;
+        }
+      }
+      return value;
+    } else {
+      return false;
     }
   }
 

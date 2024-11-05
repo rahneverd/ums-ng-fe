@@ -14,17 +14,20 @@
 <label class="{{ controlConfig?.labelClass }}">{{
   controlConfig?.fieldLabel
 }}</label>
-<div *ngFor="let element of controlConfig?.valuesList" class="field-checkbox">
-  <p-radioButton
-    [inputId]="element.key"
-    [value]="element.value"
-    [formControl]="control"
-    class="{{ controlConfig?.fieldClass }}"
-  />
-  <label [for]="element.key" class="ml-2">
-    {{ element.label }}
-  </label>
+<div class="grid formgrid">
+  <div *ngFor="let element of controlConfig?.valuesList" class="field-checkbox">
+    <p-radioButton
+      [inputId]="element.key"
+      [value]="element.value"
+      [formControl]="control"
+      class="{{ controlConfig?.fieldClass }}"
+    />
+    <label [for]="element.key" class="ml-2">
+      {{ element.label }}
+    </label>
+  </div>
 </div>
+
 <!-- <span class="{{ controlConfig?.spanClass }}">
   <i *ngIf="controlConfig?.showIcon" class="{{ controlConfig?.iconClass }}"></i>
   <input

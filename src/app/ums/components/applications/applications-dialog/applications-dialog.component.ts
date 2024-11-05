@@ -12,8 +12,7 @@ export class ApplicationsDialogComponent implements OnInit, OnDestroy {
   subscription: Subscription = new Subscription();
   formConfig: FormConfig;
 
-  constructor() // private router: Router,
-  // private apiService: ApiService,
+  constructor() // private apiService: ApiService, // private router: Router,
   // private loginService: LoginService,
   // private alertService: AlertService
   {

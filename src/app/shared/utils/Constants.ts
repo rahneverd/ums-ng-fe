@@ -109,3 +109,9 @@ export enum LOGIN_CONSTANTS {
 
   JWT_ERROR = 'TokenExpiredError',
 }
+
+export enum CONST {
+  // STATUS TYPES
+  LID_ACTIVE_ID = 11,
+  LID_INACTIVE_ID = 12,
+}

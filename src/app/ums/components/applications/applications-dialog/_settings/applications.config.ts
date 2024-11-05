@@ -1,5 +1,6 @@
+import { Validators } from '@angular/forms';
 import { API_ENDPOINTS } from 'src/app/shared/utils/ApiEndpoints';
-import { ACTIONS, FORM_CONSTANTS } from 'src/app/shared/utils/Constants';
+import { ACTIONS, CONST, FORM_CONSTANTS } from 'src/app/shared/utils/Constants';
 
 const moduleName = 'Applications';
 
@@ -20,7 +21,7 @@ export enum controlNames {
 export const APPLICATION_FORM_CONFIG = {
   formTitle: moduleName,
   formClass: 'card p-fluid',
-  controlsClass: 'row',
+  controlsClass: 'row mb-3',
   formControls: [
     {
       fieldId: FORM_CONSTANTS.FIELD_TEXT_ID,
@@ -30,10 +31,11 @@ export const APPLICATION_FORM_CONFIG = {
       // nestedPath?: string;
       // onChange?: boolean;
       showIcon: true,
-      outerClass: 'col-md-12 form-field-container',
+      outerClass: 'col-md-4 form-field-container',
       labelClass: 'form-field-label',
       spanClass: 'p-input-icon-right',
       iconClass: 'pi pi-user',
+      validations: [Validators.required],
       // fieldClass: 'input-text',
       // id: string
     },
@@ -45,10 +47,11 @@ export const APPLICATION_FORM_CONFIG = {
       // nestedPath?: string;
       // onChange?: boolean;
       showIcon: true,
-      outerClass: 'col-md-12 form-field-container',
+      outerClass: 'col-md-4 form-field-container',
       labelClass: 'form-field-label',
       spanClass: 'p-input-icon-right',
       iconClass: 'pi pi-user',
+      validations: [Validators.required],
       // fieldClass: 'input-text',
       // id: string
     },
@@ -58,16 +61,17 @@ export const APPLICATION_FORM_CONFIG = {
       fieldLabel: fieldLabels.lovStatusId,
       controlName: controlNames.lovStatusId,
       valuesList: [
-        { key: 'active', value: '12', label: 'Active' },
-        { key: 'inactive', value: '13', label: 'In Active' },
+        { key: 'active', value: CONST.LID_ACTIVE_ID, label: 'Active' },
+        { key: 'inactive', value: CONST.LID_INACTIVE_ID, label: 'In Active' },
       ],
       // nestedPath?: string;
       // onChange?: boolean;
       showIcon: true,
-      outerClass: 'col-md-12 form-field-container',
+      outerClass: 'col-md-4 form-field-container',
       labelClass: 'form-field-label',
       spanClass: 'p-input-icon-right',
       iconClass: 'pi pi-user',
+      validations: [Validators.required],
       // fieldClass: 'input-text',
       // id: string
     },
@@ -77,6 +81,11 @@ export const APPLICATION_FORM_CONFIG = {
       actionName: ACTIONS.ADD,
       actionTitle: ACTIONS.ADD_TITLE,
       buttonSelector: FORM_CONSTANTS.SELECTOR_BUTTON,
+      validations: [
+        controlNames.title,
+        controlNames.description,
+        controlNames.lovStatusId,
+      ],
       // actionUrl?: string;
       // showToast?: true,
     },

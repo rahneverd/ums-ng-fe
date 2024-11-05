@@ -1,3 +1,4 @@
+{{ form.valid | json }}
 <div class="{{ formConfig?.formClass }}" [formGroup]="form">
   <div class="{{ formConfig?.controlsClass }}">
     <ng-container *ngFor="let control of formConfig?.formControls">
@@ -30,6 +31,7 @@
           *ngSwitchCase="formConstants?.SELECTOR_BUTTON"
           [buttonConfig]="action"
           (onClick)="onClick($event)"
+          [disabled]="checkDisabled(action)"
         ></app-button>
       </ng-container>
     </ng-container>

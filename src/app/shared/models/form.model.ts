@@ -1,3 +1,4 @@
+import { Validator } from '@angular/forms';
 import { FORM_CONSTANTS } from '../utils/Constants';
 
 export class FormConfig {
@@ -53,6 +54,7 @@ export class FormControls {
   iconClass?: string;
   fieldClass?: string;
   id?: string;
+  validations?: Validator[];
 
   constructor(params?: any) {
     if (params === void 0) params = {};
@@ -70,6 +72,7 @@ export class FormControls {
     this.iconClass = params.iconClass || '';
     this.fieldClass = params.fieldClass || '';
     this.id = params.id ?? null;
+    this.validations = params.validations ?? null;
   }
 }
 
@@ -91,6 +94,7 @@ export class ActionConfig {
   buttonSelector: string;
   actionUrl?: string;
   showToast?: boolean;
+  validations?: string[];
   constructor(params?: any) {
     if (params === void 0) params = {};
     this.actionName = params.actionName;
@@ -102,6 +106,7 @@ export class ActionConfig {
       : FORM_CONSTANTS.SELECTOR_BUTTON;
     this.actionUrl = params.actionUrl ?? null;
     this.showToast = params.showToast === void 0 ? false : params.showToast;
+    this.validations = params.validations ?? [];
   }
 }
 

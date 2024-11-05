@@ -8,6 +8,7 @@ import { ActionConfig } from 'src/app/shared/models/form.model';
 })
 export class ButtonComponent {
   @Input() buttonConfig: ActionConfig = new ActionConfig();
+  @Input() disabled: boolean = false;
   @Output() onClick: EventEmitter<any> = new EventEmitter();
 
   onClickFunc() {
