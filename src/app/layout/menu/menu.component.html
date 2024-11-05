@@ -1,8 +1,69 @@
 <div>
-  <div class="menu-header">
+  <!-- <div class="menu-header">
     <p>menu works!</p>
-  </div>
-  <div class="menu-body">
+  </div> -->
+  <div
+    class="menu-body d-flex flex-column align-items-center vh-100 bg-light py-3"
+  >
     <p-panelMenu [model]="items" class="w-100"></p-panelMenu>
   </div>
 </div>
+<!-- left-menu.component.html -->
+<!-- <div class="d-flex flex-column bg-light vh-100 p-3">
+  <ul class="nav flex-column">
+    <li class="nav-item mb-3">
+      <a class="nav-link text-dark" routerLink="/dashboard">
+        <i class="pi pi-home me-2"></i> Dashboard
+      </a>
+    </li>
+    <li class="nav-item mb-3">
+      <a class="nav-link text-dark" routerLink="/overtime">
+        <i class="pi pi-clock me-2"></i> Overtime
+      </a>
+    </li>
+  </ul>
+</div> -->
+
+<!-- left-menu.component.html -->
+<!-- <div class="d-flex flex-column align-items-center vh-100 bg-light py-3">
+  <button
+    *ngFor="let item of items"
+    pButton
+    pRipple
+    [icon]="item.icon"
+    class="p-button-rounded p-button-text mb-3"
+    routerLink="/dashboard"
+    [pTooltip]="item.label"
+  ></button> -->
+<!-- <button
+    pButton
+    pRipple
+    icon="pi pi-clock"
+    class="p-button-rounded p-button-text mb-3"
+    routerLink="/overtime"
+    pTooltip="Overtime"
+  ></button>
+  <button
+    pButton
+    pRipple
+    icon="pi pi-calendar"
+    class="p-button-rounded p-button-text mb-3"
+    routerLink="/shift-schedule"
+    pTooltip="Shift Schedule"
+  ></button>
+  <button
+    pButton
+    pRipple
+    icon="pi pi-briefcase"
+    class="p-button-rounded p-button-text mb-3"
+    routerLink="/work-time"
+    pTooltip="Work Time"
+  ></button>
+  <button
+    pButton
+    pRipple
+    icon="pi pi-question-circle"
+    class="p-button-rounded p-button-text mt-auto"
+    pTooltip="Help"
+  ></button> -->
+<!-- </div> -->

@@ -43,6 +43,7 @@ export class FormControls {
   controlId: number;
   fieldLabel: string;
   controlName: string;
+  valuesList?: ValuesConfig[];
   nestedPath?: string;
   onChange?: boolean;
   showIcon?: boolean;
@@ -60,6 +61,7 @@ export class FormControls {
     this.fieldLabel = params.fieldLabel;
     this.controlName = params.controlName;
     this.nestedPath = params.nestedPath ?? null;
+    this.valuesList = params.valuesList ?? null;
     this.onChange = params.onChange === void 0 ? false : params.onChange;
     this.showIcon = params.showIcon || 'field';
     this.outerClass = params.outerClass || 'field';
@@ -68,6 +70,18 @@ export class FormControls {
     this.iconClass = params.iconClass || '';
     this.fieldClass = params.fieldClass || '';
     this.id = params.id ?? null;
+  }
+}
+
+export class ValuesConfig {
+  key: string;
+  value: string | number;
+  label: string;
+
+  constructor(params: any) {
+    this.key = params.key ?? 'key';
+    this.value = params.value ?? 'value';
+    this.label = params.label ?? 'label';
   }
 }
 

@@ -54,9 +54,13 @@ export const APPLICATION_FORM_CONFIG = {
     },
     {
       fieldId: FORM_CONSTANTS.FIELD_TEXT_ID,
-      controlId: FORM_CONSTANTS.CTRL_TEXT_BOX_ID,
+      controlId: FORM_CONSTANTS.CTRL_RADIO_ID,
       fieldLabel: fieldLabels.lovStatusId,
       controlName: controlNames.lovStatusId,
+      valuesList: [
+        { key: 'active', value: '12', label: 'Active' },
+        { key: 'inactive', value: '13', label: 'In Active' },
+      ],
       // nestedPath?: string;
       // onChange?: boolean;
       showIcon: true,

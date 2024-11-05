@@ -15,6 +15,7 @@ import { InputPasswordComponent } from './components/inputs/input-password/input
 import { ButtonComponent } from './components/buttons/button/button.component';
 import { ToastComponent } from './components/toast/toast.component';
 import { NoContentFoundComponent } from './components/no-content-found/no-content-found.component';
+import { InputRadioComponent } from './components/inputs/input-radio/input-radio.component';
 
 @NgModule({
   imports: [CommonModule, FormsModule, ReactiveFormsModule, PrimeNgModule],
@@ -32,6 +33,7 @@ import { NoContentFoundComponent } from './components/no-content-found/no-conten
     ButtonComponent,
     ToastComponent,
     NoContentFoundComponent,
+    InputRadioComponent,
   ],
   exports: [
     PrimeNgModule,

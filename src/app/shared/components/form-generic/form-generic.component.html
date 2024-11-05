@@ -13,6 +13,12 @@
           [control]="form.get(control.controlName)"
         >
         </app-input-password>
+        <app-input-radio
+          *ngSwitchCase="formConstants.CTRL_RADIO_ID"
+          [controlConfig]="control"
+          [control]="form.get(control.controlName)"
+        >
+        </app-input-radio>
       </div>
     </ng-container>
   </div>

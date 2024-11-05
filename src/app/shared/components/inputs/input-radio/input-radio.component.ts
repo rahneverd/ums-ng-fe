@@ -2,11 +2,11 @@ import { Component, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'app-input-switch',
-  templateUrl: './input-switch.component.html',
-  styleUrls: ['./input-switch.component.scss'],
+  selector: 'app-input-radio',
+  templateUrl: './input-radio.component.html',
+  styleUrls: ['./input-radio.component.scss'],
 })
-export class InputSwitchComponent {
+export class InputRadioComponent {
   @Input() controlConfig: any;
   @Input() control: any = new FormControl();
 }
