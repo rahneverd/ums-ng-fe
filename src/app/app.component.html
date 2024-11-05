@@ -3,48 +3,9 @@
 <ng-container *ngIf="isLoggedIn$ | async; then loggedIn; else loggedOut">
 </ng-container>
 <ng-template #loggedIn>
-  <!-- <app-top-bar></app-top-bar>
-  <div class="h-100 d-flex">
-    <div class="w-25">
-      <app-menu></app-menu>
-    </div>
-    <div class="w-75 vh-100 ps-3">
-      <router-outlet></router-outlet>
-    </div>
-  </div> -->
-
-  <!-- <div class="container-fluid p-0">
-    <app-top-bar></app-top-bar>
-    <div class="d-flex">
-      <div class="">
-        <app-menu></app-menu>
-      </div>
-      <div class="p-4 w-100">
-        <router-outlet></router-outlet>
-      </div>
-    </div>
-  </div> -->
-
-  <!-- [ngClass]="containerClass" -->
-  <div class="layout-wrapper layout-static p-ripple-disabled layout-theme-dark">
-    <app-top-bar></app-top-bar>
-    <div class="layout-sidebar">
-      <app-menu></app-menu>
-    </div>
-    <div class="layout-main-container">
-      <div class="layout-main">
-        <router-outlet></router-outlet>
-      </div>
-      <!-- <app-footer></app-footer> -->
-    </div>
-    <!-- <app-config></app-config> -->
-    <div class="layout-mask"></div>
-  </div>
+  <app-layout></app-layout>
 </ng-template>
 <ng-template #loggedOut>
-  <!-- <div class="vh-100 w-100 d-flex align-items-center justify-content-center">
-    <router-outlet></router-outlet>
-  </div> -->
   <div
     class="surface-ground flex align-items-center justify-content-center min-h-screen min-w-screen overflow-hidden"
   >
