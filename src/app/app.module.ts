@@ -10,9 +10,10 @@ import { MenuComponent } from './layout/menu/menu.component';
 import { TopBarComponent } from './layout/top-bar/top-bar.component';
 import { LayoutComponent } from './layout/layout/layout.component';
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
+import { MenuItemComponent } from './layout/menu-item/menu-item.component';
 
 @NgModule({
-  declarations: [AppComponent, MenuComponent, TopBarComponent, LayoutComponent],
+  declarations: [AppComponent, MenuComponent, TopBarComponent, LayoutComponent, MenuItemComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

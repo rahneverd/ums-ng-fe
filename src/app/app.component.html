@@ -12,7 +12,8 @@
       <router-outlet></router-outlet>
     </div>
   </div> -->
-  <div class="container-fluid p-0">
+
+  <!-- <div class="container-fluid p-0">
     <app-top-bar></app-top-bar>
     <div class="d-flex">
       <div class="">
@@ -22,6 +23,22 @@
         <router-outlet></router-outlet>
       </div>
     </div>
+  </div> -->
+
+  <!-- [ngClass]="containerClass" -->
+  <div class="layout-wrapper layout-static p-ripple-disabled layout-theme-dark">
+    <app-top-bar></app-top-bar>
+    <div class="layout-sidebar">
+      <app-menu></app-menu>
+    </div>
+    <div class="layout-main-container">
+      <div class="layout-main">
+        <router-outlet></router-outlet>
+      </div>
+      <!-- <app-footer></app-footer> -->
+    </div>
+    <!-- <app-config></app-config> -->
+    <div class="layout-mask"></div>
   </div>
 </ng-template>
 <ng-template #loggedOut>
