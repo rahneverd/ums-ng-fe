@@ -6,6 +6,7 @@ import { API_ENDPOINTS } from 'src/app/shared/utils/ApiEndpoints';
 import { API_STATUS_CODE } from 'src/app/shared/utils/Constants';
 import { ApiResponse } from 'src/app/shared/models/api.model';
 import { Subscription } from 'rxjs';
+import { ActionConfig } from 'src/app/shared/models/form.model';
 
 @Component({
   selector: 'app-applications-list',
@@ -33,6 +34,10 @@ export class ApplicationsListComponent implements OnInit, OnDestroy {
           // this.alertService.showErrorAlert(resp?.message);
         }
       });
+  }
+
+  onClick(event: ActionConfig) {
+    console.log(event);
   }
 
   ngOnDestroy() {

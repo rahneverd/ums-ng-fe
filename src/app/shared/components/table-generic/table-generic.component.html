@@ -3,19 +3,25 @@
     <h1 class="h4">{{ tableConfig.tableTitle }}</h1>
     <div>
       <ng-container *ngFor="let action of tableConfig.tableActions">
-        <button pButton label="+ Add New User" class="btn btn-primary"></button>
+        <button
+          pButton
+          label="+ Add New User"
+          class="btn btn-primary"
+          (click)="onClick(action)"
+        ></button>
       </ng-container>
     </div>
   </div>
+
+  <!-- [selection]="selectedUsers"
+  (selectionChange)="onSelectionChange($event)" -->
+  <!-- dataKey="email" -->
 
   <p-table
     [value]="tableConfig.tableData"
     [paginator]="true"
     [rows]="10"
     [rowsPerPageOptions]="[5, 10, 20]"
-    [selection]="selectedUsers"
-    (selectionChange)="onSelectionChange($event)"
-    dataKey="email"
     *ngIf="tableConfig.tableData?.length"
   >
     <!-- Table Headers -->

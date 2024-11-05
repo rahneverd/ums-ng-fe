@@ -1,3 +1,5 @@
+import { ActionConfig } from './form.model';
+
 export class TableConfig {
   tableTitle: string;
   tableData: any[];
@@ -67,64 +69,64 @@ export class TableColumns {
   }
 }
 
-export class ActionConfig {
-  actionName: string;
-  actionTitle?: string;
-  actionUrl?: string;
-  visibleInActionMenu?: boolean;
-  showToast?: boolean;
-  constructor(params?: any) {
-    if (params === void 0) params = {};
-    this.actionName = params.actionName;
-    this.actionTitle = params.actionTitle || '';
-    this.actionUrl = params.actionUrl ?? null;
-    this.visibleInActionMenu =
-      params.visibleInActionMenu === void 0 ? true : params.visibleInActionMenu;
-    this.showToast = params.showToast === void 0 ? false : params.showToast;
-  }
-}
+// export class ActionConfig {
+//   actionName: string;
+//   actionTitle?: string;
+//   actionUrl?: string;
+//   visibleInActionMenu?: boolean;
+//   showToast?: boolean;
+//   constructor(params?: any) {
+//     if (params === void 0) params = {};
+//     this.actionName = params.actionName;
+//     this.actionTitle = params.actionTitle || '';
+//     this.actionUrl = params.actionUrl ?? null;
+//     this.visibleInActionMenu =
+//       params.visibleInActionMenu === void 0 ? true : params.visibleInActionMenu;
+//     this.showToast = params.showToast === void 0 ? false : params.showToast;
+//   }
+// }
 
-export class FieldVisible {
-  table?: boolean;
-  view?: boolean;
-  edit?: boolean;
-  add?: boolean;
-  delete?: boolean;
-  search?: boolean;
-  submit?: boolean;
-  next?: boolean;
-  constructor(params?: any) {
-    if (params === void 0) params = {};
-    this.table = params?.table === void 0 ? true : params.table;
-    this.view = params?.view === void 0 ? true : params.view;
-    this.edit = params?.edit === void 0 ? true : params.edit;
-    this.add = params?.add === void 0 ? true : params.add;
-    this.delete = params?.delete === void 0 ? true : params.delete;
-    this.search = params?.search === void 0 ? true : params.search;
-    this.submit = params?.submit === void 0 ? true : params.submit;
-    this.next = params?.next === void 0 ? true : params.next;
-  }
-}
+// export class FieldVisible {
+//   table?: boolean;
+//   view?: boolean;
+//   edit?: boolean;
+//   add?: boolean;
+//   delete?: boolean;
+//   search?: boolean;
+//   submit?: boolean;
+//   next?: boolean;
+//   constructor(params?: any) {
+//     if (params === void 0) params = {};
+//     this.table = params?.table === void 0 ? true : params.table;
+//     this.view = params?.view === void 0 ? true : params.view;
+//     this.edit = params?.edit === void 0 ? true : params.edit;
+//     this.add = params?.add === void 0 ? true : params.add;
+//     this.delete = params?.delete === void 0 ? true : params.delete;
+//     this.search = params?.search === void 0 ? true : params.search;
+//     this.submit = params?.submit === void 0 ? true : params.submit;
+//     this.next = params?.next === void 0 ? true : params.next;
+//   }
+// }
 
-export class FormValidators {
-  required?: boolean;
-  minLength?: number;
-  maxLength?: number;
-  invalidEmail?: boolean;
-  email?: boolean;
-  pattern?: string;
-  emailMustCheck?: string;
-  constructor(params?: any) {
-    if (params === void 0) params = {};
-    this.required = params?.required ?? undefined;
-    this.minLength = params?.minLength ?? undefined;
-    this.maxLength = params?.maxLength ?? undefined;
-    this.invalidEmail = params?.invalidEmail ?? undefined;
-    this.email = params?.email ?? undefined;
-    this.pattern = params?.pattern ?? undefined;
-    this.emailMustCheck = params?.emailMustCheck ?? undefined;
-  }
-}
+// export class FormValidators {
+//   required?: boolean;
+//   minLength?: number;
+//   maxLength?: number;
+//   invalidEmail?: boolean;
+//   email?: boolean;
+//   pattern?: string;
+//   emailMustCheck?: string;
+//   constructor(params?: any) {
+//     if (params === void 0) params = {};
+//     this.required = params?.required ?? undefined;
+//     this.minLength = params?.minLength ?? undefined;
+//     this.maxLength = params?.maxLength ?? undefined;
+//     this.invalidEmail = params?.invalidEmail ?? undefined;
+//     this.email = params?.email ?? undefined;
+//     this.pattern = params?.pattern ?? undefined;
+//     this.emailMustCheck = params?.emailMustCheck ?? undefined;
+//   }
+// }
 
 export class Pagination {
   pageNo: number;
