@@ -29,6 +29,6 @@ export class TableGenericComponent {
 
   onClick(action: ActionConfig) {
     console.log('hello');
-    this.onAction.emit({ action });
+    this.onAction.emit(action);
   }
 }

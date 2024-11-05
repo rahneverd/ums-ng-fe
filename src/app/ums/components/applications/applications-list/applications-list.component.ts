@@ -7,6 +7,8 @@ import { API_STATUS_CODE } from 'src/app/shared/utils/Constants';
 import { ApiResponse } from 'src/app/shared/models/api.model';
 import { Subscription } from 'rxjs';
 import { ActionConfig } from 'src/app/shared/models/form.model';
+import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { ApplicationsDialogComponent } from '../applications-dialog/applications-dialog.component';
 
 @Component({
   selector: 'app-applications-list',
@@ -15,7 +17,11 @@ import { ActionConfig } from 'src/app/shared/models/form.model';
 })
 export class ApplicationsListComponent implements OnInit, OnDestroy {
   subscription: Subscription = new Subscription();
-  constructor(private apiService: ApiService) {}
+  constructor(
+    private apiService: ApiService,
+    private ref: DynamicDialogRef,
+    private dialogService: DialogService
+  ) {}
 
   tableDate: TableConfig = new TableConfig(APPLICATIONS_TABLE_CONFIG);
 
@@ -38,6 +44,16 @@ export class ApplicationsListComponent implements OnInit, OnDestroy {
 
   onClick(event: ActionConfig) {
     console.log(event);
+    this.dialogService.open(ApplicationsDialogComponent, {
+      data: {},
+      header: event.actionTitle,
+      width: '70%',
+      contentStyle: { overflow: 'auto' },
+      baseZIndex: 10000,
+      maximizable: true,
+      styleClass: 'png-dialogbox',
+      footer: '.',
+    });
   }
 
   ngOnDestroy() {

@@ -5,7 +5,7 @@
       <ng-container *ngFor="let action of tableConfig.tableActions">
         <button
           pButton
-          label="+ Add New User"
+          [label]="action.actionTitle"
           class="btn btn-primary"
           (click)="onClick(action)"
         ></button>

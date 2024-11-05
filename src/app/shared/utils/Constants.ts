@@ -86,7 +86,7 @@ export enum ACTIONS {
   REGISTER = 'register',
   REGISTER_TITLE = 'Register',
   ADD = 'add',
-  ADD_TITLS = 'Add',
+  ADD_TITLE = 'Add',
 }
 
 export enum API_STATUS_CODE {
