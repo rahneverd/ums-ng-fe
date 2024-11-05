@@ -14,6 +14,7 @@ import { InputDateTimeComponent } from './components/inputs/input-date-time/inpu
 import { InputPasswordComponent } from './components/inputs/input-password/input-password.component';
 import { ButtonComponent } from './components/buttons/button/button.component';
 import { ToastComponent } from './components/toast/toast.component';
+import { NoContentFoundComponent } from './components/no-content-found/no-content-found.component';
 
 @NgModule({
   imports: [CommonModule, FormsModule, ReactiveFormsModule, PrimeNgModule],
@@ -30,6 +31,7 @@ import { ToastComponent } from './components/toast/toast.component';
     InputPasswordComponent,
     ButtonComponent,
     ToastComponent,
+    NoContentFoundComponent,
   ],
   exports: [
     PrimeNgModule,
