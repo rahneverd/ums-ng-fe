@@ -86,8 +86,8 @@ export const APPLICATION_FORM_CONFIG = {
         controlNames.description,
         controlNames.lovStatusId,
       ],
-      // actionUrl?: string;
-      // showToast?: true,
+      actionUrl: API_ENDPOINTS.APPLICATION_CREATE,
+      showToast: true,
     },
   ],
   formData: {},

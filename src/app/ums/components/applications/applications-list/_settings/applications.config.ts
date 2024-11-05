@@ -5,18 +5,16 @@ const moduleName = 'Applications';
 
 // TABLE CONFIGURATION
 export enum colHeaders {
-  name = 'Name',
-  username = 'Username',
-  role = 'Role',
-  package = 'Package',
+  id = 'ID',
+  title = 'Title',
+  description = 'Description',
   status = 'Status',
 }
 
 export enum fieldNames {
-  name = 'name',
-  username = 'username',
-  role = 'lovUserTypeId',
-  package = 'packageId',
+  id = 'id',
+  title = 'title',
+  description = 'description',
   status = 'lovStatusId',
 
   firstName = 'firstName',
@@ -30,47 +28,47 @@ export const APPLICATIONS_TABLE_CONFIG = {
   // endPoint?: string,
   tableColumns: [
     {
-      field: fieldNames.name,
-      colHeader: colHeaders.name,
-      multiplePaths: [
-        fieldNames.firstName,
-        fieldNames.middleName,
-        fieldNames.lastName,
-      ],
+      field: fieldNames.id,
+      colHeader: colHeaders.id,
+      // multiplePaths: [
+      //   fieldNames.firstName,
+      //   fieldNames.middleName,
+      //   fieldNames.lastName,
+      // ],
       eventAction: false,
       showBadge: false,
       class: 'string',
       // pipe?: string;
     },
     {
-      field: fieldNames.username,
-      colHeader: colHeaders.username,
+      field: fieldNames.title,
+      colHeader: colHeaders.title,
       eventAction: false,
       showBadge: false,
       class: 'string',
       // pipe?: string;
     },
     {
-      field: fieldNames.package,
-      colHeader: colHeaders.package,
+      field: fieldNames.description,
+      colHeader: colHeaders.description,
       eventAction: false,
       showBadge: false,
       class: 'string',
       // pipe?: string;
     },
-    {
-      field: fieldNames.role,
-      colHeader: colHeaders.role,
-      nestedPath: 'lovUserTypeId.title',
-      eventAction: false,
-      showBadge: false,
-      class: 'string',
-      // pipe?: string;
-    },
+    // {
+    //   field: fieldNames.role,
+    //   colHeader: colHeaders.role,
+    //   nestedPath: 'lovUserTypeId.title',
+    //   eventAction: false,
+    //   showBadge: false,
+    //   class: 'string',
+    //   // pipe?: string;
+    // },
     {
       field: fieldNames.status,
       colHeader: colHeaders.status,
-      nestedPath: 'lovStatusId.title',
+      // nestedPath: 'lovStatusId.title',
       eventAction: false,
       showBadge: false,
       class: 'string',
