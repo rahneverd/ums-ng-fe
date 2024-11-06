@@ -8,7 +8,7 @@ import {
 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FORM_CONSTANTS } from '../../utils/Constants';
-import { ActionConfig } from '../../models/form.model';
+import { ActionConfig } from '../../models/common.model';
 
 @Component({
   selector: 'app-form-generic',
