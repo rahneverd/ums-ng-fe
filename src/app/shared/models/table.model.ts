@@ -1,4 +1,4 @@
-import { ActionConfig } from './form.model';
+import { ActionConfig, Pagination } from './common.model';
 
 export class TableConfig {
   tableTitle: string;
@@ -128,17 +128,17 @@ export class TableColumns {
 //   }
 // }
 
-export class Pagination {
-  pageNo: number;
-  itemsPerPage: number;
-  totalCount: number;
-  pagingOption: number[];
+// export class Pagination {
+//   pageNo: number;
+//   itemsPerPage: number;
+//   totalCount: number;
+//   pagingOption: number[];
 
-  constructor(params?: any) {
-    if (params === void 0) params = {};
-    this.pageNo = params?.pageNo ?? 0;
-    this.itemsPerPage = params?.itemsPerPage ?? 10;
-    this.totalCount = params?.totalCount ?? 0;
-    this.pagingOption = params?.pagingOption ?? [10, 20, 50, 100];
-  }
-}
+//   constructor(params?: any) {
+//     if (params === void 0) params = {};
+//     this.pageNo = params?.pageNo ?? 0;
+//     this.itemsPerPage = params?.itemsPerPage ?? 10;
+//     this.totalCount = params?.totalCount ?? 0;
+//     this.pagingOption = params?.pagingOption ?? [10, 20, 50, 100];
+//   }
+// }

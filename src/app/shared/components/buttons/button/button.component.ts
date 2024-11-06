@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { ActionConfig } from 'src/app/shared/models/form.model';
+import { ActionConfig } from 'src/app/shared/models/common.model';
 
 @Component({
   selector: 'app-button',

@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs';
-import { Pagination } from './form.model';
+import { Pagination } from './common.model';
 
 export interface ApiResponse {
   documentation: string;

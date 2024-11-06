@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { TableConfig } from '../../models/table.model';
-import { ActionConfig } from '../../models/form.model';
+import { ActionConfig } from '../../models/common.model';
 
 @Component({
   selector: 'app-table-generic',

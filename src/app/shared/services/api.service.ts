@@ -4,9 +4,9 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { ApiActions, ApiPayload, ApiResponse } from '../models/api.model';
 import { catchError, Observable, ObservableInput, tap, throwError } from 'rxjs';
 import { API_BASE_URL } from '../utils/ApiEndpoints';
-import { Pagination } from '../models/form.model';
 import { AlertService } from './alert.service';
 import { LOGIN_CONSTANTS } from '../utils/Constants';
+import { Pagination } from '../models/common.model';
 
 @Injectable({
   providedIn: 'root',

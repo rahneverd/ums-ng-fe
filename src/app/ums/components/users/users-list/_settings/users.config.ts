@@ -1,7 +1,6 @@
 // import { API_ENDPOINTS } from 'src/app/vhs/core/api-endpoints/apiEndpoints';
 // import { Actions } from 'src/app/vhs/shared/enums/common';
 
-import { Pagination } from 'src/app/shared/models/table.model';
 import { API_ENDPOINTS } from 'src/app/shared/utils/ApiEndpoints';
 import {
   ACTIONS,

@@ -6,9 +6,9 @@ import { API_ENDPOINTS } from 'src/app/shared/utils/ApiEndpoints';
 import { API_STATUS_CODE } from 'src/app/shared/utils/Constants';
 import { ApiResponse } from 'src/app/shared/models/api.model';
 import { Subscription } from 'rxjs';
-import { ActionConfig } from 'src/app/shared/models/form.model';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { ApplicationsDialogComponent } from '../applications-dialog/applications-dialog.component';
+import { ActionConfig } from 'src/app/shared/models/common.model';
 
 @Component({
   selector: 'app-applications-list',
