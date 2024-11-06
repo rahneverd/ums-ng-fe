@@ -68,7 +68,7 @@ export const APPLICATIONS_TABLE_CONFIG = {
     {
       field: fieldNames.status,
       colHeader: colHeaders.status,
-      // nestedPath: 'lovStatusId.title',
+      nestedPath: 'lovStatusId.title',
       eventAction: false,
       showBadge: false,
       class: 'string',
