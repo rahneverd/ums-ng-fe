@@ -19,6 +19,12 @@
           [control]="form.get(control.controlName)"
         >
         </app-input-radio>
+        <app-input-dropdown
+          *ngSwitchCase="formConstants.CTRL_DROP_DOWN_ID"
+          [controlConfig]="control"
+          [control]="form.get(control.controlName)"
+        >
+        </app-input-dropdown>
       </div>
     </ng-container>
   </div>

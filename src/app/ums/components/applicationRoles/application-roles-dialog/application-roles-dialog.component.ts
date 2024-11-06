@@ -2,8 +2,15 @@ import { Component } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { FormConfig } from 'src/app/shared/models/form.model';
 import { ApiService } from 'src/app/shared/services/api.service';
-import { APPLICATION_ROLES_FORM_CONFIG } from './_settings/application-roles.config';
-import { ACTIONS, API_STATUS_CODE } from 'src/app/shared/utils/Constants';
+import {
+  APPLICATION_ROLES_FORM_CONFIG,
+  controlNames,
+} from './_settings/application-roles.config';
+import {
+  ACTIONS,
+  API_STATUS_CODE,
+  COMMON_VARIABLES,
+} from 'src/app/shared/utils/Constants';
 import { API_ENDPOINTS } from 'src/app/shared/utils/ApiEndpoints';
 import { ApiResponse } from 'src/app/shared/models/api.model';
 
@@ -14,14 +21,13 @@ import { ApiResponse } from 'src/app/shared/models/api.model';
 })
 export class ApplicationRolesDialogComponent {
   subscription: Subscription = new Subscription();
-  formConfig: FormConfig;
-
-  applicationsList: any[] = [];
+  formConfig: FormConfig = new FormConfig();
+  renderForm: boolean = false;
 
   // private alertService: AlertService
   // private loginService: LoginService,
   constructor(private apiService: ApiService) {
-    this.formConfig = new FormConfig(APPLICATION_ROLES_FORM_CONFIG);
+    // this.formConfig = new FormConfig(APPLICATION_ROLES_FORM_CONFIG);
   }
 
   ngOnInit() {
@@ -33,9 +39,15 @@ export class ApplicationRolesDialogComponent {
       .call({}, {}, API_ENDPOINTS.APPLICATION_FIND_ALL, false)
       .subscribe((resp: any) => {
         if (resp.statusCode === API_STATUS_CODE.OK) {
-          // this.loginService.login(ApiResponse.getData(resp));
-          this.applicationsList = ApiResponse.getData(resp);
-          console.log(this.applicationsList);
+          let applicationsList = ApiResponse.getData(resp);
+          let newFormConfig = APPLICATION_ROLES_FORM_CONFIG;
+          for (let control of newFormConfig.formControls) {
+            if (control.controlName === controlNames.applicationId) {
+              control.valuesList = applicationsList;
+            }
+          }
+          this.formConfig = new FormConfig(newFormConfig);
+          this.renderForm = true;
         } else {
           // this.alertService.showErrorAlert(resp?.message);
         }
@@ -60,15 +72,15 @@ export class ApplicationRolesDialogComponent {
 
   add(obj: any) {
     console.log(obj);
-    this.subscription = this.apiService
-      .call(obj?.data, {}, obj.action?.actionUrl, obj.action.show)
-      .subscribe((resp: any) => {
-        if (resp.statusCode === API_STATUS_CODE.OK) {
-          // this.loginService.login(ApiResponse.getData(resp));
-        } else {
-          // this.alertService.showErrorAlert(resp?.message);
-        }
-      });
+    // this.subscription = this.apiService
+    //   .call(obj?.data, {}, obj.action?.actionUrl, obj.action.show)
+    //   .subscribe((resp: any) => {
+    //     if (resp.statusCode === API_STATUS_CODE.OK) {
+    //       // this.loginService.login(ApiResponse.getData(resp));
+    //     } else {
+    //       // this.alertService.showErrorAlert(resp?.message);
+    //     }
+    //   });
   }
 
   ngOnDestroy() {

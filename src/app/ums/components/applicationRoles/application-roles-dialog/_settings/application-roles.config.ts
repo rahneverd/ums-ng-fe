@@ -1,6 +1,12 @@
 import { Validators } from '@angular/forms';
 import { API_ENDPOINTS } from 'src/app/shared/utils/ApiEndpoints';
-import { ACTIONS, CONST, FORM_CONSTANTS } from 'src/app/shared/utils/Constants';
+import {
+  ACTIONS,
+  COMMON_VARIABLES,
+  CONST,
+  FORM_CONSTANTS,
+} from 'src/app/shared/utils/Constants';
+// import { APPLICATIONS_LIST } from '../application-roles-dialog.component';
 
 const moduleName = 'Application Roles';
 
@@ -70,6 +76,7 @@ export const APPLICATION_ROLES_FORM_CONFIG = {
       spanClass: 'p-input-icon-right',
       iconClass: 'pi pi-user',
       validations: [Validators.required],
+      valuesList: [],
       // fieldClass: 'input-text',
       // id: string
     },

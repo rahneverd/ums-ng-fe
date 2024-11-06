@@ -1,0 +1,13 @@
+<label class="{{ controlConfig?.labelClass }}">{{
+  controlConfig?.fieldLabel
+}}</label>
+<span class="{{ controlConfig?.spanClass }}">
+  <i *ngIf="controlConfig?.showIcon" class="{{ controlConfig?.iconClass }}"></i>
+  <p-dropdown
+    [formControl]="control"
+    class="{{ controlConfig?.fieldClass }}"
+    [options]="controlConfig.valuesList"
+    optionLabel="title"
+    placeholder="Select a City"
+  />
+</span>

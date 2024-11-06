@@ -44,7 +44,7 @@ export class FormControls {
   controlId: number;
   fieldLabel: string;
   controlName: string;
-  valuesList?: ValuesConfig[];
+  valuesList?: any[];
   nestedPath?: string;
   onChange?: boolean;
   showIcon?: boolean;

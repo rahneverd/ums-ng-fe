@@ -123,3 +123,13 @@ export enum CONST {
   LID_ACTIVE_ID = 11,
   LID_INACTIVE_ID = 12,
 }
+
+// variables
+
+export class COMMON_VARIABLES {
+  public static applicationsList: any[] = [];
+
+  public static setApplicationsList(values: any[]) {
+    this.applicationsList = values;
+  }
+}

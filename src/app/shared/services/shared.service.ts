@@ -17,4 +17,7 @@ export class SharedService {
   setIsLoggedIn(value: boolean) {
     this.isLoggedIn.next(value);
   }
+
+  // variables
+  APPLICATIONS_LIST: any[] = [];
 }
