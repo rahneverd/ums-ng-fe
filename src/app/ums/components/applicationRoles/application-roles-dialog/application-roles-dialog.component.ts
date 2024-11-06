@@ -6,13 +6,10 @@ import {
   APPLICATION_ROLES_FORM_CONFIG,
   controlNames,
 } from './_settings/application-roles.config';
-import {
-  ACTIONS,
-  API_STATUS_CODE,
-  COMMON_VARIABLES,
-} from 'src/app/shared/utils/Constants';
+import { ACTIONS, API_STATUS_CODE } from 'src/app/shared/utils/Constants';
 import { API_ENDPOINTS } from 'src/app/shared/utils/ApiEndpoints';
 import { ApiResponse } from 'src/app/shared/models/api.model';
+import { DynamicDialogRef } from 'primeng/dynamicdialog';
 
 @Component({
   selector: 'app-application-roles-dialog',
@@ -26,7 +23,7 @@ export class ApplicationRolesDialogComponent {
 
   // private alertService: AlertService
   // private loginService: LoginService,
-  constructor(private apiService: ApiService) {
+  constructor(private apiService: ApiService, private ref: DynamicDialogRef) {
     // this.formConfig = new FormConfig(APPLICATION_ROLES_FORM_CONFIG);
   }
 
@@ -72,15 +69,16 @@ export class ApplicationRolesDialogComponent {
 
   add(obj: any) {
     console.log(obj);
-    // this.subscription = this.apiService
-    //   .call(obj?.data, {}, obj.action?.actionUrl, obj.action.show)
-    //   .subscribe((resp: any) => {
-    //     if (resp.statusCode === API_STATUS_CODE.OK) {
-    //       // this.loginService.login(ApiResponse.getData(resp));
-    //     } else {
-    //       // this.alertService.showErrorAlert(resp?.message);
-    //     }
-    //   });
+    this.subscription = this.apiService
+      .call(obj?.data, {}, obj.action?.actionUrl, obj.action.show)
+      .subscribe((resp: any) => {
+        if (resp.statusCode === API_STATUS_CODE.OK) {
+          this.ref.close({ refresh: true });
+          // this.loginService.login(ApiResponse.getData(resp));
+        } else {
+          // this.alertService.showErrorAlert(resp?.message);
+        }
+      });
   }
 
   ngOnDestroy() {

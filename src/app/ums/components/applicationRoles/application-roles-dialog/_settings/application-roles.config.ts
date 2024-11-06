@@ -15,7 +15,7 @@ const moduleName = 'Application Roles';
 export enum fieldLabels {
   title = 'Title',
   description = 'Description',
-  applicationId = 'applicationId',
+  applicationId = 'Application',
   lovStatusId = 'Status',
 }
 
@@ -77,6 +77,8 @@ export const APPLICATION_ROLES_FORM_CONFIG = {
       iconClass: 'pi pi-user',
       validations: [Validators.required],
       valuesList: [],
+      dropDownValue: controlNames.applicationId,
+      dropDownLabel: controlNames.title,
       // fieldClass: 'input-text',
       // id: string
     },
@@ -109,6 +111,7 @@ export const APPLICATION_ROLES_FORM_CONFIG = {
       validations: [
         controlNames.title,
         controlNames.description,
+        controlNames.applicationId,
         controlNames.lovStatusId,
       ],
       actionUrl: API_ENDPOINTS.APPLICATION_ROLES_CREATE,

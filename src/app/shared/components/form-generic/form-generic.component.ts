@@ -30,7 +30,7 @@ export class FormGenericComponent implements OnInit, OnDestroy {
     for (const control of this.formConfig?.formControls) {
       this.form.addControl(
         control.controlName,
-        this.fb.control('', control?.validations)
+        this.fb.control(null, control?.validations)
       );
     }
   }

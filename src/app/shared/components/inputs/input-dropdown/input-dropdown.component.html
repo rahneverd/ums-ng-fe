@@ -7,7 +7,8 @@
     [formControl]="control"
     class="{{ controlConfig?.fieldClass }}"
     [options]="controlConfig.valuesList"
-    optionLabel="title"
+    optionLabel="{{ controlConfig.dropDownLabel }}"
+    optionValue="{{ controlConfig.dropDownValue }}"
     placeholder="Select a City"
   />
 </span>
