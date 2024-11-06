@@ -6,9 +6,13 @@ import { UsersListComponent } from './components/users/users-list/users-list.com
 import { SharedModule } from '../shared/shared.module';
 import { ApplicationsListComponent } from './components/applications/applications-list/applications-list.component';
 import { ApplicationsDialogComponent } from './components/applications/applications-dialog/applications-dialog.component';
+import { ApplicationRolesListComponent } from './components/applicationRoles/application-roles-list/application-roles-list.component';
+import { ApplicationRolesDialogComponent } from './components/applicationRoles/application-roles-dialog/application-roles-dialog.component';
+import { BusinessRolesDialogComponent } from './components/businessRoles/business-roles-dialog/business-roles-dialog.component';
+import { BusinessRolesListComponent } from './components/businessRoles/business-roles-list/business-roles-list.component';
 
 @NgModule({
-  declarations: [UsersListComponent, ApplicationsListComponent, ApplicationsDialogComponent],
+  declarations: [UsersListComponent, ApplicationsListComponent, ApplicationsDialogComponent, ApplicationRolesListComponent, ApplicationRolesDialogComponent, BusinessRolesDialogComponent, BusinessRolesListComponent],
   imports: [CommonModule, UmsRoutingModule, SharedModule],
 })
 export class UmsModule {}
