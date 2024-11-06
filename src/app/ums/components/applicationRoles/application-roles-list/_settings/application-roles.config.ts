@@ -9,6 +9,7 @@ export enum colHeaders {
   title = 'Title',
   description = 'Description',
   status = 'Status',
+  applicationId = 'Application',
 }
 
 export enum fieldNames {
@@ -16,6 +17,7 @@ export enum fieldNames {
   title = 'title',
   description = 'description',
   status = 'lovStatusId',
+  applicationId = 'applicationId',
 }
 
 export const APPLICATION_ROLES_TABLE_CONFIG = {
@@ -52,19 +54,19 @@ export const APPLICATION_ROLES_TABLE_CONFIG = {
       class: 'string',
       // pipe?: string;
     },
-    // {
-    //   field: fieldNames.role,
-    //   colHeader: colHeaders.role,
-    //   nestedPath: 'lovUserTypeId.title',
-    //   eventAction: false,
-    //   showBadge: false,
-    //   class: 'string',
-    //   // pipe?: string;
-    // },
+    {
+      field: fieldNames.applicationId,
+      colHeader: colHeaders.applicationId,
+      nestedPath: 'applicationId.title',
+      eventAction: false,
+      showBadge: false,
+      class: 'string',
+      // pipe?: string;
+    },
     {
       field: fieldNames.status,
       colHeader: colHeaders.status,
-      // nestedPath: 'lovStatusId.title',
+      nestedPath: 'lovStatusId.title',
       eventAction: false,
       showBadge: false,
       class: 'string',
