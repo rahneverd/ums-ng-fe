@@ -1,6 +1,7 @@
 // import { API_ENDPOINTS } from 'src/app/vhs/core/api-endpoints/apiEndpoints';
 // import { Actions } from 'src/app/vhs/shared/enums/common';
 
+import { Validators } from '@angular/forms';
 import { ACTIONS, FORM_CONSTANTS } from 'src/app/shared/utils/Constants';
 
 const moduleName = 'Login';
@@ -32,6 +33,7 @@ export const LOGIN_FORM_CONFIG = {
       labelClass: 'form-field-label',
       spanClass: 'p-input-icon-right',
       iconClass: 'pi pi-user',
+      validations: [Validators.required],
       // fieldClass: 'input-text',
       // id: string
     },
@@ -46,6 +48,7 @@ export const LOGIN_FORM_CONFIG = {
       outerClass: 'col-md-12 form-field-container',
       labelClass: 'form-field-label',
       spanClass: 'p-input-icon-right',
+      validations: [Validators.required],
       // iconClass: 'pi pi-key',
       // fieldClass: 'input-text ',
       // id: string
@@ -56,6 +59,7 @@ export const LOGIN_FORM_CONFIG = {
       actionName: ACTIONS.LOGIN,
       actionTitle: ACTIONS.LOGIN_TITLE,
       buttonSelector: FORM_CONSTANTS.SELECTOR_BUTTON,
+      validations: [controlNames.email, controlNames.password],
       // actionUrl?: string;
       // showToast?: true,
     },

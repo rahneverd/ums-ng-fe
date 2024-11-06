@@ -14,4 +14,10 @@ export enum API_ENDPOINTS {
   APPLICATION_FIND_ALL = 'application/findAll',
   APPLICATION_UPDATE = 'application/update',
   APPLICATION_DELETE = 'application/delete',
+
+  // application roles routes
+  APPLICATION_ROLES_CREATE = 'application-role/create',
+  APPLICATION_ROLES_FIND_ALL = 'application-role/findAll',
+  APPLICATION_ROLES_UPDATE = 'application-role/update',
+  APPLICATION_ROLES_DELETE = 'application-role/delete',
 }

@@ -1,7 +1,7 @@
 import { API_ENDPOINTS } from 'src/app/shared/utils/ApiEndpoints';
 import { ACTIONS, FORM_CONSTANTS } from 'src/app/shared/utils/Constants';
 
-const moduleName = 'Applications';
+const moduleName = 'Application Roles';
 
 // TABLE CONFIGURATION
 export enum colHeaders {
@@ -12,17 +12,13 @@ export enum colHeaders {
 }
 
 export enum fieldNames {
-  id = 'applicationId',
+  id = 'applicationRoleId',
   title = 'title',
   description = 'description',
   status = 'lovStatusId',
-
-  firstName = 'firstName',
-  middleName = 'middleName',
-  lastName = 'lastName',
 }
 
-export const APPLICATIONS_TABLE_CONFIG = {
+export const APPLICATION_ROLES_TABLE_CONFIG = {
   tableTitle: moduleName,
   tableData: [],
   // endPoint?: string,
@@ -76,18 +72,11 @@ export const APPLICATIONS_TABLE_CONFIG = {
     },
   ],
   tableActions: [
-    // {
-    //   actionName: ACTIONS.ADD,
-    //   actionTitle: 'Add Application',
-    //   actionUrl: API_ENDPOINTS.USER_CREATE,
-    //   // visibleInActionMenu: true,
-    //   showToast: true,
-    // },
     {
       actionName: ACTIONS.ADD,
-      actionTitle: 'Add Application',
+      actionTitle: 'Add Application Role',
       buttonSelector: FORM_CONSTANTS.SELECTOR_BUTTON,
-      actionUrl: API_ENDPOINTS.APPLICATION_CREATE,
+      actionUrl: API_ENDPOINTS.APPLICATION_ROLES_CREATE,
       showToast: true,
     },
   ],
