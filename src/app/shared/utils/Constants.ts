@@ -5,6 +5,8 @@ export enum FE_URLS {
 
   USERS = 'ums/users',
   APPLICATIONS = 'ums/applications',
+  APPLICATION_ROLES = 'ums/application-roles',
+  BUSINESS_ROLES = 'ums/business-roles',
 }
 
 export class UTS {

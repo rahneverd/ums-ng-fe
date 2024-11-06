@@ -42,8 +42,14 @@ export class MenuComponent {
             command: () => this.navigateTo(FE_URLS.APPLICATIONS),
           },
           {
-            label: 'Roles',
+            label: 'Application Roles',
             icon: 'pi pi-fw pi-sitemap',
+            command: () => this.navigateTo(FE_URLS.APPLICATION_ROLES),
+          },
+          {
+            label: 'Business Roles',
+            icon: 'pi pi-fw pi-sitemap',
+            command: () => this.navigateTo(FE_URLS.BUSINESS_ROLES),
           },
           {
             label: 'Packages',
