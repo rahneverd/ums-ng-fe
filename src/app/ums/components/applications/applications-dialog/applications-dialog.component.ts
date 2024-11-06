@@ -4,6 +4,7 @@ import { FormConfig } from 'src/app/shared/models/form.model';
 import { APPLICATION_FORM_CONFIG } from './_settings/applications.config';
 import { ACTIONS, API_STATUS_CODE } from 'src/app/shared/utils/Constants';
 import { ApiService } from 'src/app/shared/services/api.service';
+import { DynamicDialogRef } from 'primeng/dynamicdialog';
 
 @Component({
   selector: 'app-applications-dialog',
@@ -16,7 +17,7 @@ export class ApplicationsDialogComponent implements OnInit, OnDestroy {
 
   // private alertService: AlertService
   // private loginService: LoginService,
-  constructor(private apiService: ApiService) {
+  constructor(private apiService: ApiService, private ref: DynamicDialogRef) {
     this.formConfig = new FormConfig(APPLICATION_FORM_CONFIG);
   }
 
@@ -44,6 +45,7 @@ export class ApplicationsDialogComponent implements OnInit, OnDestroy {
       .call(obj?.data, {}, obj.action?.actionUrl, obj.action.show)
       .subscribe((resp: any) => {
         if (resp.statusCode === API_STATUS_CODE.OK) {
+          this.ref.close({ refresh: true });
           // this.loginService.login(ApiResponse.getData(resp));
         } else {
           // this.alertService.showErrorAlert(resp?.message);

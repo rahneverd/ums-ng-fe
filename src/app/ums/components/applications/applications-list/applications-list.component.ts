@@ -44,7 +44,7 @@ export class ApplicationsListComponent implements OnInit, OnDestroy {
 
   onClick(event: ActionConfig) {
     console.log(event);
-    this.dialogService.open(ApplicationsDialogComponent, {
+    this.ref = this.dialogService.open(ApplicationsDialogComponent, {
       data: {},
       header: event.actionTitle,
       width: '70%',
@@ -53,6 +53,11 @@ export class ApplicationsListComponent implements OnInit, OnDestroy {
       maximizable: true,
       styleClass: 'png-dialogbox',
       footer: '.',
+    });
+    this.subscription = this.ref.onClose.subscribe((data: any) => {
+      if (data?.refresh) {
+        this.getAllUsers();
+      }
     });
   }
 
