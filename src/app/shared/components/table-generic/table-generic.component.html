@@ -64,9 +64,8 @@
                 *ngSwitchCase="formConstants?.SELECTOR_BUTTON"
                 [buttonConfig]="action"
                 (onClick)="onClick($event)"
+                [disabled]="checkDisabled(action)"
               ></app-button>
-
-              <!-- [disabled]="checkDisabled(action)" -->
             </ng-container>
           </ng-container>
         </td>

@@ -28,6 +28,20 @@ export class TableGenericComponent {
     return eval(`data.${nestedPath}`);
   }
 
+  checkDisabled(action: ActionConfig) {
+    if (action.validations?.length) {
+      let value = false;
+      // for (let validation of action.validations) {
+      //   if (!this.form.get(validation)?.valid) {
+      //     value = true;
+      //   }
+      // }
+      return value;
+    } else {
+      return false;
+    }
+  }
+
   onClick(action: ActionConfig) {
     console.log('hello');
     this.onAction.emit(action);
