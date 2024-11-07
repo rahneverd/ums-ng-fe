@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { TableConfig } from '../../models/table.model';
 import { ActionConfig } from '../../models/common.model';
+import { FORM_CONSTANTS } from '../../utils/Constants';
 
 @Component({
   selector: 'app-table-generic',
@@ -30,5 +31,10 @@ export class TableGenericComponent {
   onClick(action: ActionConfig) {
     console.log('hello');
     this.onAction.emit(action);
+  }
+
+  // getters
+  get formConstants() {
+    return FORM_CONSTANTS;
   }
 }

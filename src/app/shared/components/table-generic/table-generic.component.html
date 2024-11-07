@@ -39,8 +39,8 @@
         </th>
         <!-- <th>Role</th>
         <th>Groups</th>
-        <th>Status</th>
-        <th>Actions</th> -->
+        <th>Status</th>-->
+        <th *ngIf="tableConfig?.rowActions">Actions</th>
       </tr>
     </ng-template>
 
@@ -56,6 +56,19 @@
               ? getNestedPathData(data, col.nestedPath)
               : data[col.field]
           }}
+        </td>
+        <td *ngIf="tableConfig?.rowActions">
+          <ng-container *ngFor="let action of tableConfig?.rowActions">
+            <ng-container [ngSwitch]="action?.buttonSelector">
+              <app-button
+                *ngSwitchCase="formConstants?.SELECTOR_BUTTON"
+                [buttonConfig]="action"
+                (onClick)="onClick($event)"
+              ></app-button>
+
+              <!-- [disabled]="checkDisabled(action)" -->
+            </ng-container>
+          </ng-container>
         </td>
         <!-- <td>
           <p-checkbox [(ngModel)]="user.selected" [binary]="true"></p-checkbox>
