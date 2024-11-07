@@ -60,11 +60,6 @@ export class BusinessRolesDialogComponent {
     } else if (event?.action?.actionName === ACTIONS.DELETE) {
       // this.delete()
     }
-    // if (event?.action?.actionName === ACTIONS.LOGIN) {
-    //   this.login(event);
-    // } else if (event?.action?.actionName === ACTIONS.REGISTER) {
-    //   this.router.navigate([FE_URLS.REGISTER]);
-    // }
   }
 
   add(obj: any) {
