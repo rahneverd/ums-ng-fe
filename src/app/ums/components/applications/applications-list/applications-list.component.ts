@@ -9,6 +9,7 @@ import { Subscription } from 'rxjs';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { ApplicationsDialogComponent } from '../applications-dialog/applications-dialog.component';
 import { ActionConfig } from 'src/app/shared/models/common.model';
+import { AlertService } from 'src/app/shared/services/alert.service';
 
 @Component({
   selector: 'app-applications-list',
@@ -20,24 +21,25 @@ export class ApplicationsListComponent implements OnInit, OnDestroy {
   constructor(
     private apiService: ApiService,
     private ref: DynamicDialogRef,
-    private dialogService: DialogService
+    private dialogService: DialogService,
+    private alertService: AlertService
   ) {}
 
   tableDate: TableConfig = new TableConfig(APPLICATIONS_TABLE_CONFIG);
 
   ngOnInit() {
-    this.getAllUsers();
+    this.getAllApplications();
   }
 
-  getAllUsers() {
+  getAllApplications() {
     this.subscription = this.apiService
-      .call({}, {}, API_ENDPOINTS.APPLICATION_FIND_ALL, true)
+      .call({}, {}, API_ENDPOINTS.APPLICATION_FIND_ALL, false)
       .subscribe((resp) => {
         if (resp.statusCode === API_STATUS_CODE.OK) {
           console.log(resp);
           this.tableDate.tableData = ApiResponse.getData(resp);
         } else {
-          // this.alertService.showErrorAlert(resp?.message);
+          this.alertService.showErrorAlert(resp?.message);
         }
       });
   }
@@ -56,7 +58,7 @@ export class ApplicationsListComponent implements OnInit, OnDestroy {
     });
     this.subscription = this.ref.onClose.subscribe((data: any) => {
       if (data?.refresh) {
-        this.getAllUsers();
+        this.getAllApplications();
       }
     });
   }
