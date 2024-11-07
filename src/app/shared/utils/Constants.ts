@@ -95,6 +95,8 @@ export enum ACTIONS {
   VIEW_TITLE = 'Add',
   DELETE = 'add',
   DELETE_TITLE = 'Add',
+  LINK_UNLINK = 'link_unlink',
+  LINK_UNLINK_TITLE = 'Link/Un Link',
 }
 
 export enum API_STATUS_CODE {

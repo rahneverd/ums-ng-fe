@@ -73,6 +73,15 @@ export const BUSINESS_ROLES_TABLE_CONFIG = {
       // pipe?: string;
     },
   ],
+  rowActions: [
+    {
+      actionName: ACTIONS.LINK_UNLINK,
+      actionTitle: ACTIONS.LINK_UNLINK_TITLE,
+      buttonSelector: FORM_CONSTANTS.SELECTOR_BUTTON,
+      // actionUrl: API_ENDPOINTS.BUSINESS_ROLES_CREATE,
+      showToast: true,
+    },
+  ],
   tableActions: [
     {
       actionName: ACTIONS.ADD,
