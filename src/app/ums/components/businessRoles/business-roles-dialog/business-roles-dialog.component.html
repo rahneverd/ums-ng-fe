@@ -3,3 +3,14 @@
   [formConfig]="formConfig"
   (onAction)="onAction($event)"
 ></app-form-generic>
+<div *ngIf="renderLinkUnlinkForm">
+  <div *ngFor="let linked of applicationRolesList[0]">
+    <label for="switch1">{{ linked?.title }}</label>
+    <p-inputSwitch [ngModel]="true" inputId="switch1"></p-inputSwitch>
+  </div>
+
+  <div *ngFor="let unLinked of applicationRolesList[1]">
+    <label for="switch1">{{ unLinked?.title }}</label>
+    <p-inputSwitch inputId="switch1"></p-inputSwitch>
+  </div>
+</div>

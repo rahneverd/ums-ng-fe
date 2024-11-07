@@ -46,24 +46,24 @@ export class BusinessRolesListComponent {
 
   onClick(event: ActionConfig) {
     console.log(event);
-    if (event.actionName === ACTIONS.ADD) {
-      this.ref = this.dialogService.open(BusinessRolesDialogComponent, {
-        data: {},
-        header: event.actionTitle,
-        width: '70%',
-        contentStyle: { overflow: 'auto' },
-        baseZIndex: 10000,
-        maximizable: true,
-        styleClass: 'png-dialogbox',
-        footer: '.',
-      });
-      this.subscription = this.ref.onClose.subscribe((data: any) => {
-        if (data?.refresh) {
-          this.getAllBusinessRoles();
-        }
-      });
-    } else if (event.actionName === ACTIONS.LINK_UNLINK) {
-    }
+    // if (event.actionName === ACTIONS.ADD) {
+    this.ref = this.dialogService.open(BusinessRolesDialogComponent, {
+      data: { ...event },
+      header: event.actionTitle,
+      width: '70%',
+      contentStyle: { overflow: 'auto' },
+      baseZIndex: 10000,
+      maximizable: true,
+      styleClass: 'png-dialogbox',
+      footer: '.',
+    });
+    this.subscription = this.ref.onClose.subscribe((data: any) => {
+      if (data?.refresh) {
+        this.getAllBusinessRoles();
+      }
+    });
+    // } else if (event.actionName === ACTIONS.LINK_UNLINK) {
+    // }
   }
 
   ngOnDestroy() {

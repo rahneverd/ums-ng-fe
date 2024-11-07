@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DynamicDialogRef } from 'primeng/dynamicdialog';
+import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { Subscription } from 'rxjs';
 import { ApiResponse } from 'src/app/shared/models/api.model';
 import { FormConfig } from 'src/app/shared/models/form.model';
@@ -20,15 +20,27 @@ export class BusinessRolesDialogComponent {
   subscription: Subscription = new Subscription();
   formConfig: FormConfig = new FormConfig();
   renderForm: boolean = false;
+  action: any = undefined;
+  applicationRolesList: any[] = [];
+  renderLinkUnlinkForm: boolean = false;
 
   // private alertService: AlertService
   // private loginService: LoginService,
-  constructor(private apiService: ApiService, private ref: DynamicDialogRef) {
+  constructor(
+    private apiService: ApiService,
+    private ref: DynamicDialogRef,
+    private config: DynamicDialogConfig
+  ) {
     // this.formConfig = new FormConfig(APPLICATION_ROLES_FORM_CONFIG);
   }
 
   ngOnInit() {
-    this.getAllApplications();
+    this.action = this.config.data;
+    if (this.action.actionName === ACTIONS.ADD) {
+      this.getAllApplications();
+    } else if (this.action.actionName === ACTIONS.LINK_UNLINK) {
+      this.getLinkedUnlinkedApplicationRoles();
+    }
   }
 
   getAllApplications() {
@@ -45,6 +57,36 @@ export class BusinessRolesDialogComponent {
           }
           this.formConfig = new FormConfig(newFormConfig);
           this.renderForm = true;
+        } else {
+          // this.alertService.showErrorAlert(resp?.message);
+        }
+      });
+  }
+
+  getLinkedUnlinkedApplicationRoles() {
+    let payload = {
+      businessRoleId: this.action.data.businessRoleId,
+      applicationId: this.action.data.applicationId.applicationId,
+    };
+    this.subscription = this.apiService
+      .call(
+        payload,
+        {},
+        API_ENDPOINTS.BUSINESS_ROLES_FIND_ALL_LINKED_UNLINKED,
+        false
+      )
+      .subscribe((resp: any) => {
+        if (resp.statusCode === API_STATUS_CODE.OK) {
+          this.applicationRolesList = ApiResponse.getData(resp);
+          this.renderLinkUnlinkForm = true;
+          console.log(this.applicationRolesList);
+          // for (let control of newFormConfig.formControls) {
+          //   if (control.controlName === controlNames.applicationId) {
+          //     control.valuesList = applicationsList;
+          //   }
+          // }
+          // this.formConfig = new FormConfig(newFormConfig);
+          // this.renderForm = true;
         } else {
           // this.alertService.showErrorAlert(resp?.message);
         }

@@ -42,6 +42,7 @@ import { TagModule } from 'primeng/tag';
 import { TimelineModule } from 'primeng/timeline';
 import { ToastModule } from 'primeng/toast';
 import { ChartModule } from 'primeng/chart';
+import { ToggleButtonModule } from 'primeng/togglebutton';
 
 @NgModule({
   declarations: [],
@@ -86,6 +87,7 @@ import { ChartModule } from 'primeng/chart';
     OrderListModule,
     AccordionModule,
     ChartModule,
+    ToggleButtonModule,
   ],
   exports: [
     TableModule,
@@ -128,6 +130,7 @@ import { ChartModule } from 'primeng/chart';
     OrderListModule,
     AccordionModule,
     ChartModule,
+    ToggleButtonModule,
   ],
   providers: [DialogService, DynamicDialogRef],
 })
