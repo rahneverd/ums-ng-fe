@@ -93,6 +93,44 @@ export class BusinessRolesDialogComponent {
       });
   }
 
+  onChange(event: any, applicationRole: any) {
+    console.log(event, applicationRole);
+    if (event?.checked) {
+      this.link(applicationRole);
+    } else {
+      this.unlink(applicationRole);
+    }
+  }
+
+  link(applicationRole: any) {
+    let payload = {
+      applicationId: applicationRole?.applicationId?.applicationId,
+      applicationRoleId: applicationRole?.applicationRoleId,
+      businessRoleId: this.action.data.businessRoleId,
+    };
+    console.log('link: ', payload);
+    this.subscription = this.apiService
+      .call(payload, {}, API_ENDPOINTS.BUSINESS_APPLICATION_ROLES_CREATE, false)
+      .subscribe((resp: any) => {
+        if (resp.statusCode === API_STATUS_CODE.OK) {
+          // this.applicationRolesList = ApiResponse.getData(resp);
+          // this.renderLinkUnlinkForm = true;
+          console.log(resp);
+          // for (let control of newFormConfig.formControls) {
+          //   if (control.controlName === controlNames.applicationId) {
+          //     control.valuesList = applicationsList;
+          //   }
+          // }
+          // this.formConfig = new FormConfig(newFormConfig);
+          // this.renderForm = true;
+        } else {
+          // this.alertService.showErrorAlert(resp?.message);
+        }
+      });
+  }
+
+  unlink(applicationRole: any) {}
+
   onAction(event: any) {
     console.log(event);
     if (event?.action?.actionName === ACTIONS.ADD) {

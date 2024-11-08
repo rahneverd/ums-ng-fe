@@ -11,6 +11,9 @@
 
   <div *ngFor="let unLinked of applicationRolesList[1]">
     <label for="switch1">{{ unLinked?.title }}</label>
-    <p-inputSwitch inputId="switch1"></p-inputSwitch>
+    <p-inputSwitch
+      inputId="switch1"
+      (onChange)="onChange($event, unLinked)"
+    ></p-inputSwitch>
   </div>
 </div>
