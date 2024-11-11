@@ -50,7 +50,7 @@ export class BusinessRolesListComponent {
     this.ref = this.dialogService.open(BusinessRolesDialogComponent, {
       data: { ...event },
       header: event.actionTitle,
-      width: '70%',
+      width: event.actionName === ACTIONS.ADD ? '70%' : '30%',
       contentStyle: { overflow: 'auto' },
       baseZIndex: 10000,
       maximizable: true,

@@ -20,6 +20,7 @@ export enum API_ENDPOINTS {
   APPLICATION_ROLES_FIND_ALL = 'application-role/findAll',
   APPLICATION_ROLES_UPDATE = 'application-role/update',
   APPLICATION_ROLES_DELETE = 'application-role/delete',
+  APPLICATION_ROLES_FIND_ALL_LINKED_UNLINKED = 'application-role/findAllLinkedUnlinked',
 
   // business roles routes
   BUSINESS_ROLES_CREATE = 'business-role/create',
@@ -30,4 +31,5 @@ export enum API_ENDPOINTS {
 
   // business application roles routes
   BUSINESS_APPLICATION_ROLES_CREATE = 'business-application-role/create',
+  BUSINESS_APPLICATION_ROLES_DELETE = 'business-application-role/delete',
 }

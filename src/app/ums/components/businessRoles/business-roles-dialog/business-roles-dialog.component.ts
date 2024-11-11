@@ -72,7 +72,7 @@ export class BusinessRolesDialogComponent {
       .call(
         payload,
         {},
-        API_ENDPOINTS.BUSINESS_ROLES_FIND_ALL_LINKED_UNLINKED,
+        API_ENDPOINTS.APPLICATION_ROLES_FIND_ALL_LINKED_UNLINKED,
         false
       )
       .subscribe((resp: any) => {
@@ -94,7 +94,7 @@ export class BusinessRolesDialogComponent {
   }
 
   onChange(event: any, applicationRole: any) {
-    console.log(event, applicationRole);
+    // console.log(event, applicationRole);
     if (event?.checked) {
       this.link(applicationRole);
     } else {
@@ -104,18 +104,17 @@ export class BusinessRolesDialogComponent {
 
   link(applicationRole: any) {
     let payload = {
-      applicationId: applicationRole?.applicationId?.applicationId,
-      applicationRoleId: applicationRole?.applicationRoleId,
+      applicationId: this.action.data?.applicationId?.applicationId,
+      applicationRoleId: applicationRole?.application_role_id,
       businessRoleId: this.action.data.businessRoleId,
     };
-    console.log('link: ', payload);
     this.subscription = this.apiService
-      .call(payload, {}, API_ENDPOINTS.BUSINESS_APPLICATION_ROLES_CREATE, false)
+      .call(payload, {}, API_ENDPOINTS.BUSINESS_APPLICATION_ROLES_CREATE, true)
       .subscribe((resp: any) => {
         if (resp.statusCode === API_STATUS_CODE.OK) {
           // this.applicationRolesList = ApiResponse.getData(resp);
           // this.renderLinkUnlinkForm = true;
-          console.log(resp);
+          // console.log(resp);
           // for (let control of newFormConfig.formControls) {
           //   if (control.controlName === controlNames.applicationId) {
           //     control.valuesList = applicationsList;
@@ -129,7 +128,22 @@ export class BusinessRolesDialogComponent {
       });
   }
 
-  unlink(applicationRole: any) {}
+  unlink(applicationRole: any) {
+    console.log(applicationRole);
+    // businessApplicationRoleId
+    let payload = {
+      businessApplicationRoleId: applicationRole?.business_application_role_id,
+    };
+    this.subscription = this.apiService
+      .call(payload, {}, API_ENDPOINTS.BUSINESS_APPLICATION_ROLES_DELETE, true)
+      .subscribe((resp: any) => {
+        if (resp.statusCode === API_STATUS_CODE.OK) {
+          // console.log(resp);
+        } else {
+          // this.alertService.showErrorAlert(resp?.message);
+        }
+      });
+  }
 
   onAction(event: any) {
     console.log(event);
