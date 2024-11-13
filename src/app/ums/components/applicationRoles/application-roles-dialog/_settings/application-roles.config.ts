@@ -81,6 +81,7 @@ export const APPLICATION_ROLES_FORM_CONFIG = {
       dropDownLabel: controlNames.title,
       // fieldClass: 'input-text',
       // id: string
+      placeHolder: 'Select Application',
     },
     {
       fieldId: FORM_CONSTANTS.FIELD_TEXT_ID,

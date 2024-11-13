@@ -57,6 +57,7 @@ export class FormControls {
   validations?: Validator[];
   dropDownValue?: string;
   dropDownLabel?: string;
+  placeHolder?: string;
 
   constructor(params?: any) {
     if (params === void 0) params = {};
@@ -77,6 +78,7 @@ export class FormControls {
     this.validations = params.validations ?? null;
     this.dropDownValue = params.dropDownValue ?? null;
     this.dropDownLabel = params.dropDownLabel ?? null;
+    this.placeHolder = params.placeHolder ?? null;
   }
 }
 
