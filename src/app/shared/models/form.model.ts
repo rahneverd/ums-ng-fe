@@ -78,7 +78,7 @@ export class FormControls {
     this.validations = params.validations ?? null;
     this.dropDownValue = params.dropDownValue ?? null;
     this.dropDownLabel = params.dropDownLabel ?? null;
-    this.placeHolder = params.placeHolder ?? null;
+    this.placeHolder = params.placeHolder ?? 'Placeholder';
   }
 }
 
