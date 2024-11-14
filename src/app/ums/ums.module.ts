@@ -10,9 +10,11 @@ import { ApplicationRolesListComponent } from './components/applicationRoles/app
 import { ApplicationRolesDialogComponent } from './components/applicationRoles/application-roles-dialog/application-roles-dialog.component';
 import { BusinessRolesDialogComponent } from './components/businessRoles/business-roles-dialog/business-roles-dialog.component';
 import { BusinessRolesListComponent } from './components/businessRoles/business-roles-list/business-roles-list.component';
+import { OrganizationListComponent } from './components/organization/organization-list/organization-list.component';
+import { OrganizationDialogComponent } from './components/organization/organization-dialog/organization-dialog.component';
 
 @NgModule({
-  declarations: [UsersListComponent, ApplicationsListComponent, ApplicationsDialogComponent, ApplicationRolesListComponent, ApplicationRolesDialogComponent, BusinessRolesDialogComponent, BusinessRolesListComponent],
+  declarations: [UsersListComponent, ApplicationsListComponent, ApplicationsDialogComponent, ApplicationRolesListComponent, ApplicationRolesDialogComponent, BusinessRolesDialogComponent, BusinessRolesListComponent, OrganizationListComponent, OrganizationDialogComponent],
   imports: [CommonModule, UmsRoutingModule, SharedModule],
 })
 export class UmsModule {}
