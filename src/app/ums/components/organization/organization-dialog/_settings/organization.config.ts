@@ -7,25 +7,23 @@ import {
   FORM_CONSTANTS,
 } from 'src/app/shared/utils/Constants';
 
-const moduleName = 'Business Roles';
+const moduleName = 'Organization';
 
 // FORM CONFIGURATION
 
 export enum fieldLabels {
   title = 'Title',
   description = 'Description',
-  applicationId = 'Application',
   lovStatusId = 'Status',
 }
 
 export enum controlNames {
   title = 'title',
   description = 'description',
-  applicationId = 'applicationId',
   lovStatusId = 'lovStatusId',
 }
 
-export const BUSINESS_ROLES_FORM_CONFIG = {
+export const ORGANIZATION_FORM_CONFIG = {
   formTitle: moduleName,
   formClass: 'card p-fluid',
   controlsClass: 'row mb-3',
@@ -64,25 +62,6 @@ export const BUSINESS_ROLES_FORM_CONFIG = {
     },
     {
       fieldId: FORM_CONSTANTS.FIELD_TEXT_ID,
-      controlId: FORM_CONSTANTS.CTRL_DROP_DOWN_ID,
-      fieldLabel: fieldLabels.applicationId,
-      controlName: controlNames.applicationId,
-      // nestedPath?: string;
-      // onChange?: boolean;
-      showIcon: true,
-      outerClass: 'col-md-4 form-field-container',
-      labelClass: 'form-field-label',
-      spanClass: 'p-input-icon-right',
-      iconClass: 'pi pi-user',
-      validations: [Validators.required],
-      valuesList: [],
-      dropDownValue: controlNames.applicationId,
-      dropDownLabel: controlNames.title,
-      // fieldClass: 'input-text',
-      // id: string
-    },
-    {
-      fieldId: FORM_CONSTANTS.FIELD_TEXT_ID,
       controlId: FORM_CONSTANTS.CTRL_RADIO_ID,
       fieldLabel: fieldLabels.lovStatusId,
       controlName: controlNames.lovStatusId,
@@ -110,10 +89,9 @@ export const BUSINESS_ROLES_FORM_CONFIG = {
       validations: [
         controlNames.title,
         controlNames.description,
-        controlNames.applicationId,
         controlNames.lovStatusId,
       ],
-      actionUrl: API_ENDPOINTS.BUSINESS_ROLES_CREATE,
+      actionUrl: API_ENDPOINTS.ORGANIZATION_CREATE,
       showToast: true,
     },
   ],
