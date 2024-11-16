@@ -37,6 +37,11 @@ export class MenuComponent {
             // ],
           },
           {
+            label: 'Organization',
+            icon: 'pi pi-fw pi-sitemap',
+            command: () => this.navigateTo(FE_URLS.ORGANIZATION),
+          },
+          {
             label: 'Applications',
             icon: 'pi pi-fw pi-qrcode',
             command: () => this.navigateTo(FE_URLS.APPLICATIONS),

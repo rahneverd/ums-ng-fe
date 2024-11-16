@@ -4,6 +4,7 @@ export enum FE_URLS {
   REGISTER = 'register',
 
   USERS = 'ums/users',
+  ORGANIZATION = 'ums/organizations',
   APPLICATIONS = 'ums/applications',
   APPLICATION_ROLES = 'ums/application-roles',
   BUSINESS_ROLES = 'ums/business-roles',
