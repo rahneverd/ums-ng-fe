@@ -9,6 +9,12 @@ export enum API_ENDPOINTS {
   USER_CREATE = 'user/createUser',
   USER_UPDATE = '',
 
+  // organizations routes
+  ORGANIZATION_CREATE = 'organization/create',
+  ORGANIZATION_FIND_ALL = 'organization/findAll',
+  ORGANIZATION_UPDATE = 'organization/update',
+  ORGANIZATION_DELETE = 'organization/delete',
+
   // applications routes
   APPLICATION_CREATE = 'application/create',
   APPLICATION_FIND_ALL = 'application/findAll',
