@@ -8,16 +8,16 @@ export enum colHeaders {
   id = 'ID',
   title = 'Title',
   description = 'Description',
+  owner = 'Owner',
   status = 'Status',
-  applicationId = 'Application',
 }
 
 export enum fieldNames {
-  id = 'businessRoleId',
+  id = 'organizationId',
   title = 'title',
   description = 'description',
+  owner = 'ownerId',
   status = 'lovStatusId',
-  applicationId = 'applicationId',
 }
 
 export const ORGANIZATIONS_TABLE_CONFIG = {
@@ -55,9 +55,13 @@ export const ORGANIZATIONS_TABLE_CONFIG = {
       // pipe?: string;
     },
     {
-      field: fieldNames.applicationId,
-      colHeader: colHeaders.applicationId,
-      nestedPath: 'applicationId.title',
+      field: fieldNames.owner,
+      colHeader: colHeaders.owner,
+      nestedPath: [
+        'ownerId.middleName',
+        'ownerId.firstName',
+        'ownerId.lastName',
+      ],
       eventAction: false,
       showBadge: false,
       class: 'string',

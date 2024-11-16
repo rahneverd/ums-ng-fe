@@ -25,7 +25,15 @@ export class TableGenericComponent {
   }
 
   getNestedPathData(data: any, nestedPath: any) {
-    return eval(`data.${nestedPath}`);
+    if (typeof nestedPath === 'string') {
+      return eval(`data.${nestedPath}`);
+    } else if (nestedPath instanceof Array) {
+      let value = '';
+      for (let path of nestedPath) {
+        value += eval(`data.${path}`) + ' ';
+      }
+      return value;
+    }
   }
 
   checkDisabled(action: ActionConfig) {

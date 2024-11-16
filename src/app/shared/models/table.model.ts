@@ -48,7 +48,7 @@ export class TableConfig {
 export class TableColumns {
   field: string;
   colHeader: string;
-  nestedPath?: string;
+  nestedPath?: string | Array<string>;
   multiplePaths?: string[];
   eventAction?: boolean;
   showBadge?: boolean;
