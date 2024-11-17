@@ -7,12 +7,14 @@ const moduleName = 'Applications';
 // FORM CONFIGURATION
 
 export enum fieldLabels {
+  organizationId = 'Organization',
   title = 'Title',
   description = 'Description',
   lovStatusId = 'Status',
 }
 
 export enum controlNames {
+  organizationId = 'organizationId',
   title = 'title',
   description = 'description',
   lovStatusId = 'lovStatusId',
@@ -23,6 +25,26 @@ export const APPLICATION_FORM_CONFIG = {
   formClass: 'card p-fluid',
   controlsClass: 'row mb-3',
   formControls: [
+    {
+      fieldId: FORM_CONSTANTS.FIELD_TEXT_ID,
+      controlId: FORM_CONSTANTS.CTRL_DROP_DOWN_ID,
+      fieldLabel: fieldLabels.organizationId,
+      controlName: controlNames.organizationId,
+      // nestedPath?: string;
+      // onChange?: boolean;
+      showIcon: true,
+      outerClass: 'col-md-4 form-field-container',
+      labelClass: 'form-field-label',
+      spanClass: 'p-input-icon-right',
+      iconClass: 'pi pi-user',
+      validations: [Validators.required],
+      valuesList: [],
+      dropDownValue: controlNames.organizationId,
+      dropDownLabel: controlNames.title,
+      // fieldClass: 'input-text',
+      // id: string
+      placeHolder: 'Select Application',
+    },
     {
       fieldId: FORM_CONSTANTS.FIELD_TEXT_ID,
       controlId: FORM_CONSTANTS.CTRL_TEXT_BOX_ID,

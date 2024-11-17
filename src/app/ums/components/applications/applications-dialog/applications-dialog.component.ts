@@ -1,11 +1,15 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { FormConfig } from 'src/app/shared/models/form.model';
-import { APPLICATION_FORM_CONFIG } from './_settings/applications.config';
+import {
+  APPLICATION_FORM_CONFIG,
+  controlNames,
+} from './_settings/applications.config';
 import { ACTIONS, API_STATUS_CODE } from 'src/app/shared/utils/Constants';
 import { ApiService } from 'src/app/shared/services/api.service';
 import { DynamicDialogRef } from 'primeng/dynamicdialog';
-
+import { API_ENDPOINTS } from 'src/app/shared/utils/ApiEndpoints';
+import { ApiResponse } from 'src/app/shared/models/api.model';
 @Component({
   selector: 'app-applications-dialog',
   templateUrl: './applications-dialog.component.html',
@@ -13,15 +17,38 @@ import { DynamicDialogRef } from 'primeng/dynamicdialog';
 })
 export class ApplicationsDialogComponent implements OnInit, OnDestroy {
   subscription: Subscription = new Subscription();
-  formConfig: FormConfig;
+  formConfig: FormConfig = new FormConfig();
+  renderForm: boolean = false;
 
   // private alertService: AlertService
   // private loginService: LoginService,
   constructor(private apiService: ApiService, private ref: DynamicDialogRef) {
-    this.formConfig = new FormConfig(APPLICATION_FORM_CONFIG);
+    // this.formConfig = new FormConfig(APPLICATION_FORM_CONFIG);
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.getAllOrganizations();
+  }
+
+  getAllOrganizations() {
+    this.subscription = this.apiService
+      .call({}, {}, API_ENDPOINTS.ORGANIZATION_FIND_ALL, false)
+      .subscribe((resp: any) => {
+        if (resp.statusCode === API_STATUS_CODE.OK) {
+          let applicationsList = ApiResponse.getData(resp);
+          let newFormConfig = APPLICATION_FORM_CONFIG;
+          for (let control of newFormConfig.formControls) {
+            if (control.controlName === controlNames.organizationId) {
+              control.valuesList = applicationsList;
+            }
+          }
+          this.formConfig = new FormConfig(newFormConfig);
+          this.renderForm = true;
+        } else {
+          // this.alertService.showErrorAlert(resp?.message);
+        }
+      });
+  }
 
   onAction(event: any) {
     console.log(event);
