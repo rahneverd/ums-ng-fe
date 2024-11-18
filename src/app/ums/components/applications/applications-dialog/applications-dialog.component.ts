@@ -54,7 +54,7 @@ export class ApplicationsDialogComponent implements OnInit, OnDestroy {
     console.log(event);
     if (event?.action?.actionName === ACTIONS.ADD) {
       this.add(event);
-    } else if (event?.action?.actionName === ACTIONS.UPDATE) {
+    } else if (event?.action?.actionName === ACTIONS.EDIT) {
       // this.update()
     } else if (event?.action?.actionName === ACTIONS.DELETE) {
       // this.delete()
