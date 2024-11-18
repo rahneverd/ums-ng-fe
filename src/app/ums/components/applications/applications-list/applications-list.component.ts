@@ -36,7 +36,6 @@ export class ApplicationsListComponent implements OnInit, OnDestroy {
       .call({}, {}, API_ENDPOINTS.APPLICATION_FIND_ALL, false)
       .subscribe((resp) => {
         if (resp.statusCode === API_STATUS_CODE.OK) {
-          console.log(resp);
           this.tableDate.tableData = ApiResponse.getData(resp);
         } else {
           this.alertService.showErrorAlert(resp?.message);
@@ -45,7 +44,6 @@ export class ApplicationsListComponent implements OnInit, OnDestroy {
   }
 
   onClick(event: ActionConfig) {
-    console.log(event);
     this.ref = this.dialogService.open(ApplicationsDialogComponent, {
       data: {},
       header: event.actionTitle,

@@ -35,7 +35,6 @@ export class LoginComponent implements OnInit, OnDestroy {
   ngOnInit() {}
 
   onAction(event: any) {
-    // console.log(event);
     if (event?.action?.actionName === ACTIONS.LOGIN) {
       this.login(event);
     } else if (event?.action?.actionName === ACTIONS.REGISTER) {
@@ -44,7 +43,6 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   login(obj: any) {
-    console.log(obj);
     this.subscription = this.apiService
       .call(obj?.data, {}, API_ENDPOINTS.LOGIN, false)
       .subscribe((resp) => {

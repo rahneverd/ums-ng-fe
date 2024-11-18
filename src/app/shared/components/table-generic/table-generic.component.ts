@@ -51,7 +51,6 @@ export class TableGenericComponent {
   }
 
   onClick(action: ActionConfig, data?: any) {
-    console.log('hello');
     this.onAction.emit({ ...action, data: data });
   }
 

@@ -51,7 +51,6 @@ export class ApplicationsDialogComponent implements OnInit, OnDestroy {
   }
 
   onAction(event: any) {
-    console.log(event);
     if (event?.action?.actionName === ACTIONS.ADD) {
       this.add(event);
     } else if (event?.action?.actionName === ACTIONS.EDIT) {
@@ -67,7 +66,6 @@ export class ApplicationsDialogComponent implements OnInit, OnDestroy {
   }
 
   add(obj: any) {
-    console.log(obj);
     this.subscription = this.apiService
       .call(obj?.data, {}, obj.action?.actionUrl, obj.action.show)
       .subscribe((resp: any) => {

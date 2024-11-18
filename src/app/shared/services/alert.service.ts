@@ -13,7 +13,6 @@ export class AlertService {
 
   checkToast(response: any, showToast: boolean) {
     if (showToast) {
-      //   console.log('oas url here: ', response?.statusCode);
       if (
         response?.statusCode === API_STATUS_CODE.OK ||
         response?.statusCode === API_STATUS_CODE.CREATED

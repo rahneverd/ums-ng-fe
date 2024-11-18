@@ -36,7 +36,6 @@ export class ApplicationRolesListComponent {
       .call({}, {}, API_ENDPOINTS.APPLICATION_ROLES_FIND_ALL, false)
       .subscribe((resp) => {
         if (resp.statusCode === API_STATUS_CODE.OK) {
-          console.log(resp);
           this.tableDate.tableData = ApiResponse.getData(resp);
         } else {
           this.alertService.showErrorAlert(resp?.message);
@@ -45,7 +44,6 @@ export class ApplicationRolesListComponent {
   }
 
   onClick(event: ActionConfig) {
-    console.log(event);
     this.ref = this.dialogService.open(ApplicationRolesDialogComponent, {
       data: {},
       header: event.actionTitle,

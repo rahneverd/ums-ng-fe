@@ -19,10 +19,6 @@ export class ApiService implements ApiActions {
   ) {}
 
   errorHandler = (error: HttpErrorResponse) => {
-    console.log(
-      'oas error: ',
-      error?.error?.name === LOGIN_CONSTANTS.JWT_ERROR
-    );
     let errorMessage = '';
     if (!navigator.onLine) {
       errorMessage = 'Connection Error';
@@ -44,7 +40,6 @@ export class ApiService implements ApiActions {
       tap((res: ApiResponse) => {
         if (showToast) {
           this.alertService.checkToast(res, showToast);
-          // console.log('oas url here: ', url);
         }
       }),
       catchError(this.errorHandler)

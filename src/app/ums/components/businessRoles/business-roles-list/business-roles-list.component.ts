@@ -36,7 +36,6 @@ export class BusinessRolesListComponent {
       .call({}, {}, API_ENDPOINTS.BUSINESS_ROLES_FIND_ALL, false)
       .subscribe((resp) => {
         if (resp.statusCode === API_STATUS_CODE.OK) {
-          console.log(resp);
           this.tableDate.tableData = ApiResponse.getData(resp);
         } else {
           this.alertService.showErrorAlert(resp?.message);
@@ -45,7 +44,6 @@ export class BusinessRolesListComponent {
   }
 
   onClick(event: ActionConfig) {
-    console.log(event);
     // if (event.actionName === ACTIONS.ADD) {
     this.ref = this.dialogService.open(BusinessRolesDialogComponent, {
       data: { ...event },

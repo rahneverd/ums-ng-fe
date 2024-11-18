@@ -79,7 +79,6 @@ export class BusinessRolesDialogComponent {
         if (resp.statusCode === API_STATUS_CODE.OK) {
           this.applicationRolesList = ApiResponse.getData(resp);
           this.renderLinkUnlinkForm = true;
-          console.log(this.applicationRolesList);
           // for (let control of newFormConfig.formControls) {
           //   if (control.controlName === controlNames.applicationId) {
           //     control.valuesList = applicationsList;
@@ -94,7 +93,6 @@ export class BusinessRolesDialogComponent {
   }
 
   onChange(event: any, applicationRole: any) {
-    // console.log(event, applicationRole);
     if (event?.checked) {
       this.link(applicationRole);
     } else {
@@ -114,7 +112,6 @@ export class BusinessRolesDialogComponent {
         if (resp.statusCode === API_STATUS_CODE.OK) {
           // this.applicationRolesList = ApiResponse.getData(resp);
           // this.renderLinkUnlinkForm = true;
-          // console.log(resp);
           // for (let control of newFormConfig.formControls) {
           //   if (control.controlName === controlNames.applicationId) {
           //     control.valuesList = applicationsList;
@@ -129,8 +126,6 @@ export class BusinessRolesDialogComponent {
   }
 
   unlink(applicationRole: any) {
-    console.log(applicationRole);
-    // businessApplicationRoleId
     let payload = {
       businessApplicationRoleId: applicationRole?.business_application_role_id,
     };
@@ -138,7 +133,6 @@ export class BusinessRolesDialogComponent {
       .call(payload, {}, API_ENDPOINTS.BUSINESS_APPLICATION_ROLES_DELETE, true)
       .subscribe((resp: any) => {
         if (resp.statusCode === API_STATUS_CODE.OK) {
-          // console.log(resp);
         } else {
           // this.alertService.showErrorAlert(resp?.message);
         }
@@ -146,7 +140,6 @@ export class BusinessRolesDialogComponent {
   }
 
   onAction(event: any) {
-    console.log(event);
     if (event?.action?.actionName === ACTIONS.ADD) {
       this.add(event);
     } else if (event?.action?.actionName === ACTIONS.EDIT) {
@@ -157,7 +150,6 @@ export class BusinessRolesDialogComponent {
   }
 
   add(obj: any) {
-    console.log(obj);
     this.subscription = this.apiService
       .call(obj?.data, {}, obj.action?.actionUrl, obj.action.show)
       .subscribe((resp: any) => {
